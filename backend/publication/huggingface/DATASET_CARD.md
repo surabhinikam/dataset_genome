@@ -17,12 +17,12 @@ Dataset Genome is an autonomous, open-source scientific reasoning benchmark desi
 
 ## Dataset Schema & Statistics
 - **Dataset Version**: `v2.0-adaptive`
-- **Total Retained Samples**: `15`
+- **Total Retained Samples**: `10`
 - **Adaptive Score**: `79.0 / 100`
 - **Training Readiness**: `False`
 
 ### Domain Distribution
-- **Agriculture**: 15 sample(s)
+- **Agriculture**: 10 sample(s)
 
 ## Known Limitations & Future Improvements
 - Telemetry records represent controlled synthetic & empirical experiments.

@@ -1,6 +1,6 @@
 [
   {
-    "id": "rec-agriculture-001-648e3b",
+    "id": "rec-agriculture-001-1ca7c0",
     "domain": "Agriculture",
     "difficulty": "hard",
     "prompt": "Evaluate scientific dataset anomaly in Agriculture (Sample #1): Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. Formulate primary hypothesis and experimental validation design.",
@@ -27,10 +27,10 @@
       "Soil pH below 5.5 locking zinc availability"
     ],
     "scientific_conclusion": "Zinc supplementation resolves micronutrient bottleneck and maximizes nitrogen fertilizer efficiency.",
-    "created_at": "2026-07-29 20:28:55.659132"
+    "created_at": "2026-07-29 20:32:10.074561"
   },
   {
-    "id": "rec-agriculture-002-c0d571",
+    "id": "rec-agriculture-002-dd4066",
     "domain": "Agriculture",
     "difficulty": "medium",
     "prompt": "Evaluate scientific dataset anomaly in Agriculture (Sample #2): Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. Formulate primary hypothesis and experimental validation design.",
@@ -57,10 +57,10 @@
       "Soil pH below 5.5 locking zinc availability"
     ],
     "scientific_conclusion": "Zinc supplementation resolves micronutrient bottleneck and maximizes nitrogen fertilizer efficiency.",
-    "created_at": "2026-07-29 20:28:55.659132"
+    "created_at": "2026-07-29 20:32:10.074561"
   },
   {
-    "id": "rec-agriculture-003-216f6c",
+    "id": "rec-agriculture-003-413622",
     "domain": "Agriculture",
     "difficulty": "hard",
     "prompt": "Evaluate scientific dataset anomaly in Agriculture (Sample #3): Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. Formulate primary hypothesis and experimental validation design.",
@@ -87,10 +87,10 @@
       "Soil pH below 5.5 locking zinc availability"
     ],
     "scientific_conclusion": "Zinc supplementation resolves micronutrient bottleneck and maximizes nitrogen fertilizer efficiency.",
-    "created_at": "2026-07-29 20:28:55.659132"
+    "created_at": "2026-07-29 20:32:10.074561"
   },
   {
-    "id": "rec-agriculture-004-a4fe87",
+    "id": "rec-agriculture-004-883b6d",
     "domain": "Agriculture",
     "difficulty": "medium",
     "prompt": "Evaluate scientific dataset anomaly in Agriculture (Sample #4): Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. Formulate primary hypothesis and experimental validation design.",
@@ -117,10 +117,10 @@
       "Soil pH below 5.5 locking zinc availability"
     ],
     "scientific_conclusion": "Zinc supplementation resolves micronutrient bottleneck and maximizes nitrogen fertilizer efficiency.",
-    "created_at": "2026-07-29 20:28:55.659132"
+    "created_at": "2026-07-29 20:32:10.075562"
   },
   {
-    "id": "rec-agriculture-005-92d9dd",
+    "id": "rec-agriculture-005-4f0c84",
     "domain": "Agriculture",
     "difficulty": "hard",
     "prompt": "Evaluate scientific dataset anomaly in Agriculture (Sample #5): Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. Formulate primary hypothesis and experimental validation design.",
@@ -147,6 +147,6 @@
       "Soil pH below 5.5 locking zinc availability"
     ],
     "scientific_conclusion": "Zinc supplementation resolves micronutrient bottleneck and maximizes nitrogen fertilizer efficiency.",
-    "created_at": "2026-07-29 20:28:55.659132"
+    "created_at": "2026-07-29 20:32:10.075562"
   }
 ]

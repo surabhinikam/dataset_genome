@@ -1,23 +1,23 @@
-# Dataset Genome — Master Publication & Open Source Report
+# Dataset Genome — Autonomous Execution Run Report
 
-**Publication ID**: `pub-master-c4785b59`  
-**Published At**: `2026-07-29 20:32:10 UTC`  
+**Execution Run ID**: `exec-run-2036dc35`  
+**Final Pipeline State**: `COMPLETED`  
+**Completed At**: `2026-07-29 20:31:36 UTC`  
+**Total Execution Time**: `0.08 seconds`  
 
-## Open-Source Target Readiness
+## Core Metric Summary
 
-- **Dataset Package Status**: `READY`
-- **Model Package Status**: `READY`
-- **Hugging Face Hub Status**: `READY`
-- **Kaggle Dataset Status**: `READY`
+- **Dataset Version**: `v2.0-adaptive`
+- **Adaptive Dataset Score**: `79.0 / 100`
+- **AutoScientist Training Status**: `COMPLETED`
+- **Publication Readiness Status**: `READY`
 
-## Validation Status Breakdown
+## Errors & Warnings
 
-- **dataset_schema_validation**: `PASSED`
-- **model_checkpoint_validation**: `PASSED`
-- **kaggle_cli_validation**: `PASSED`
-- **huggingface_repo_validation**: `PASSED`
+- **Errors (0)**: `None`
+- **Warnings (0)**: `None`
 
-## Generated Artifact Files
+## Generated Platform Artifacts
 
 - `C:\Users\surab\OneDrive\Documents\DATASET GENOME\dataset_genome\backend\publication\dataset\dataset_final.json`
 - `C:\Users\surab\OneDrive\Documents\DATASET GENOME\dataset_genome\backend\publication\dataset\dataset_statistics.json`
@@ -35,4 +35,4 @@
 - `C:\Users\surab\OneDrive\Documents\DATASET GENOME\dataset_genome\backend\publication\huggingface\MODEL_CARD.md`
 
 ---
-*(Generated automatically by Dataset Genome Publication & Open Source Engine)*
+*(Generated automatically by Dataset Genome Orchestrator Engine)*

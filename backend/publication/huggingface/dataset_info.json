@@ -1,6 +1,6 @@
 {
   "description": "Dataset Genome Scientific Reasoning Benchmark",
   "version": "v2.0-adaptive",
-  "download_size": 22500,
-  "dataset_size": 22500
+  "download_size": 15000,
+  "dataset_size": 15000
 }
