@@ -15,7 +15,7 @@ pipeline_tag: text-generation
 The AutoScientist Reasoning Model formulates hypotheses and plans laboratory experiments based on structured 10-point reasoning chains.
 
 ## Evaluation Metrics & Benchmarks
-- **Job ID**: `job-auto-0d7ec4c4`
+- **Job ID**: `job-auto-3e47204b`
 - **Reasoning Quality**: `88.5 / 100`
 - **Hypothesis Accuracy**: `84.0%`
 - **Model Confidence**: `89.0%`
