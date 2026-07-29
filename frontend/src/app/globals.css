@@ -1,30 +1,33 @@
 /**
- * app/globals.css — Global design tokens and base styles.
+ * app/globals.css — Dataset Genome Bioinformatics Design System.
  *
- * Uses Tailwind CSS with a custom dark colour palette and micro-animation
- * utilities to create a premium, futuristic aesthetic.
- *
- * NOTE: Google Fonts are loaded via <link> in layout.tsx because
- * Tailwind v4's @import expansion prevents URL @imports from being first.
+ * Exact tokens:
+ * --porcelain: #EEF2EF (cool clinical off-white base background)
+ * --ink: #14171A (primary text, near-black charcoal)
+ * --sequencer-teal: #0F6B5C (primary accent for CTAs, active states, focus rings)
+ * --base-a: #3FA66D (green — Merge operations)
+ * --base-t: #D64545 (red — Filter/Drop operations)
+ * --base-g: #D98F3F (amber — Transform operations)
+ * --base-c: #3C6E9C (blue — Annotate/Enrich operations)
+ * --paper: #FFFFFF (card/panel surfaces, subtle 1px --ink border at 8% opacity)
  */
 
 @import "tailwindcss";
 
-/* ---- CSS custom properties (design tokens) ---- */
 :root {
-  --background: #080812;
-  --foreground: #e8e8f0;
-  --muted: rgba(255, 255, 255, 0.4);
-  --border: rgba(255, 255, 255, 0.06);
-  --card: rgba(255, 255, 255, 0.03);
+  --porcelain: #EEF2EF;
+  --ink: #14171A;
+  --sequencer-teal: #0F6B5C;
+  --base-a: #3FA66D;
+  --base-t: #D64545;
+  --base-g: #D98F3F;
+  --base-c: #3C6E9C;
+  --paper: #FFFFFF;
 
-  --violet: #7c3aed;
-  --violet-light: #a78bfa;
-  --indigo: #4f46e5;
-  --indigo-light: #818cf8;
+  --font-mono-display: "JetBrains Mono", "Fragment Mono", "IBM Plex Mono", monospace;
+  --font-sans-body: "IBM Plex Sans", "Inter", system-ui, -apple-system, sans-serif;
 }
 
-/* ---- Base reset ---- */
 *,
 *::before,
 *::after {
@@ -33,88 +36,119 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-inter), "Inter", system-ui, sans-serif;
-  background-color: var(--background);
-  color: var(--foreground);
+html, body {
+  background-color: var(--porcelain);
+  color: var(--ink);
+  font-family: var(--font-sans-body);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ---- Scrollbar ---- */
+/* Monospace typography helpers */
+.font-mono-display {
+  font-family: var(--font-mono-display);
+  letter-spacing: -0.02em;
+}
+
+.font-mono-data {
+  font-family: "IBM Plex Mono", "JetBrains Mono", monospace;
+}
+
+/* Custom focus rings */
+*:focus-visible {
+  outline: 2px solid var(--sequencer-teal) !important;
+  outline-offset: 2px !important;
+}
+
+/* Custom scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(20, 23, 26, 0.04);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(15, 107, 92, 0.25);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: var(--sequencer-teal);
 }
 
-/* ---- Animated gradient background ---- */
-.animated-bg {
-  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(124, 58, 237, 0.15), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 70%, rgba(79, 70, 229, 0.1), transparent),
-    #080812;
+/* Grid & instrument paper background pattern */
+.bg-grid-instrument {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(20, 23, 26, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 23, 26, 0.04) 1px, transparent 1px);
 }
 
-/* ---- Glass card ---- */
-.glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+.bg-dots-instrument {
+  background-image: radial-gradient(rgba(20, 23, 26, 0.12) 1px, transparent 1px);
+  background-size: 16px 16px;
 }
 
-/* ---- Shimmer loading effect ---- */
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-.shimmer {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.03) 25%,
-    rgba(255, 255, 255, 0.08) 50%,
-    rgba(255, 255, 255, 0.03) 75%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-}
-
-/* ---- Slide-in animation ---- */
-@keyframes slideUp {
-  from {
+/* Sequencing Light Beam Scan Animation */
+@keyframes sequencingScan {
+  0% {
+    left: -5%;
     opacity: 0;
-    transform: translateY(16px);
   }
+  15% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    left: 105%;
+    opacity: 0;
+  }
+}
+
+.animate-sequencing-scan {
+  animation: sequencingScan 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Ambient Dotted Pulse along lineage rungs */
+@keyframes rungPulse {
+  0% {
+    stroke-dashoffset: 24;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-rung-pulse {
+  stroke-dasharray: 4, 8;
+  animation: rungPulse 1.8s linear infinite;
+}
+
+/* Sanger Chromatogram Trace animation */
+@keyframes drawTrace {
   to {
-    opacity: 1;
-    transform: translateY(0);
+    stroke-dashoffset: 0;
   }
 }
 
-.animate-slide-up {
-  animation: slideUp 0.4s ease-out forwards;
+.animate-draw-trace {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawTrace 0.6s ease-out forwards;
 }
 
-/* ---- Fade-in animation ---- */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Paper specimen surface */
+.specimen-paper-card {
+  background-color: var(--paper);
+  border: 1px solid rgba(20, 23, 26, 0.08);
+  box-shadow: 0 1px 3px rgba(20, 23, 26, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.5s ease-out forwards;
+.specimen-paper-card:hover {
+  border-color: rgba(15, 107, 92, 0.35);
+  box-shadow: 0 4px 12px rgba(15, 107, 92, 0.08);
 }

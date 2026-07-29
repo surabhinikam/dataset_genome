@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Dataset Genome
 
 > **Sprint 1 — Foundation** · AI-powered dataset intelligence platform
@@ -192,3 +193,7 @@ See [docs/vision.md](docs/vision.md) and [docs/research-gap.md](docs/research-ga
 ## 📝 License
 
 MIT © Dataset Genome Team
+=======
+# adaption-autoscientist-challenge-part-2-60000-prize-pool-surabhicodes
+Hackathon team repository for surabhi_codes - [hackindia-team:adaption-autoscientist-challenge-part-2-60000-prize-pool:surabhicodes]
+>>>>>>> 6b5edac30675a5e543bec213c29f79fde0083c1a
