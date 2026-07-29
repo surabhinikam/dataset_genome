@@ -9,6 +9,10 @@ from app.integrations.huggingface.cards import DatasetCardGenerator, ModelCardGe
 from app.integrations.huggingface.client import BaseHuggingFaceClient, MockHuggingFaceClient
 from app.integrations.huggingface.config import DEFAULT_HF_CONFIG, HuggingFaceConfig
 from app.integrations.huggingface.dataset import DatasetPublisher
+from app.integrations.huggingface.datasets import HuggingFaceDatasetsWrapper
+from app.integrations.huggingface.downloader import HuggingFaceDownloader
+from app.integrations.huggingface.evaluate import HuggingFaceEvaluator, MetricRegistry
+from app.integrations.huggingface.hub import HuggingFaceHubWrapper
 from app.integrations.huggingface.metadata import MetadataManager
 from app.integrations.huggingface.model import ModelPublisher
 from app.integrations.huggingface.models import (
@@ -22,10 +26,12 @@ from app.integrations.huggingface.report import (
     export_publishing_report_json,
     export_publishing_report_markdown,
 )
-from app.integrations.huggingface.uploader import HuggingFaceUploader
+from app.integrations.huggingface.uploader import ProductionHuggingFaceUploader, ProductionHuggingFaceUploader as HuggingFaceUploader
+from app.integrations.huggingface.utils import TransformersLoader
 from app.integrations.huggingface.versioning import VersionManager
 
 __all__ = [
+    "ProductionHuggingFaceUploader",
     "HuggingFaceUploader",
     "DatasetPublisher",
     "ModelPublisher",
@@ -35,6 +41,12 @@ __all__ = [
     "MetadataManager",
     "BaseHuggingFaceClient",
     "MockHuggingFaceClient",
+    "HuggingFaceHubWrapper",
+    "HuggingFaceDatasetsWrapper",
+    "HuggingFaceEvaluator",
+    "HuggingFaceDownloader",
+    "MetricRegistry",
+    "TransformersLoader",
     "PublishingReport",
     "DatasetPackage",
     "ModelArtifactPackage",

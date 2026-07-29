@@ -1,5 +1,5 @@
 {
-  "publication_id": "pub-master-c4785b59",
+  "publication_id": "pub-master-94b1af9a",
   "dataset_ready": true,
   "model_ready": true,
   "hf_ready": true,
@@ -65,5 +65,5 @@
     "kaggle_cli_validation": "PASSED",
     "huggingface_repo_validation": "PASSED"
   },
-  "published_at": "2026-07-29T20:32:10.630669"
+  "published_at": "2026-07-29T20:37:47.540313"
 }
