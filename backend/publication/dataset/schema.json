@@ -1,0 +1,23 @@
+{
+  "title": "ScientificReasoningRecordSchema",
+  "version": "v2.0-adaptive",
+  "fields": [
+    "id",
+    "domain",
+    "difficulty",
+    "prompt",
+    "context",
+    "observation",
+    "identified_problem",
+    "research_gap",
+    "primary_hypothesis",
+    "alternative_hypothesis",
+    "experiment_design",
+    "control_variables",
+    "evaluation_metrics",
+    "expected_result",
+    "failure_cases",
+    "scientific_conclusion"
+  ],
+  "reasoning_steps": 10
+}
