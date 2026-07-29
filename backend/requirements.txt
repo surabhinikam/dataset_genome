@@ -1,0 +1,22 @@
+# Dataset Genome - Backend Dependencies
+# Python 3.11+ (python.org Windows distribution recommended for binary wheel support)
+
+# Web framework
+fastapi==0.115.5
+
+# ASGI server
+# Note: [standard] extras (watchfiles, httptools) require Rust build toolchain.
+# Use plain uvicorn for maximum compatibility. Reload still works via --reload flag.
+uvicorn==0.32.1
+
+# Settings management
+pydantic-settings==2.6.1
+
+# File upload support (required by FastAPI for multipart/form-data)
+python-multipart==0.0.12
+
+# Data processing
+pandas==2.2.3
+
+# UUID generation (stdlib, listed for clarity -- no install needed)
+# uuid  <- built-in
