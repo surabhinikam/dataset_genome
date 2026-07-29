@@ -26,7 +26,7 @@ from app.integrations.huggingface.report import (
     export_publishing_report_json,
     export_publishing_report_markdown,
 )
-from app.integrations.huggingface.uploader import ProductionHuggingFaceUploader, ProductionHuggingFaceUploader as HuggingFaceUploader
+from app.integrations.huggingface.uploader import HuggingFaceUploader, ProductionHuggingFaceUploader
 from app.integrations.huggingface.utils import TransformersLoader
 from app.integrations.huggingface.versioning import VersionManager
 
