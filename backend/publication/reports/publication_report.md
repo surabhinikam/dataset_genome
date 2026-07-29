@@ -1,60 +1,38 @@
-# Dataset Genome — Master Publication Report
+# Dataset Genome — Master Publication & Open Source Report
 
-**Publication ID**: `pub-master-951ac1c1`  
-**Published At**: `2026-07-29 20:18:27 UTC`  
+**Publication ID**: `pub-master-42b31faa`  
+**Published At**: `2026-07-29 20:28:55 UTC`  
 
-## Readiness Checklist
+## Open-Source Target Readiness
 
-- **Dataset Package**: `READY`
-- **Model Package**: `READY`
-- **Hugging Face Hub**: `READY`
-- **Kaggle Dataset**: `READY`
+- **Dataset Package Status**: `READY`
+- **Model Package Status**: `READY`
+- **Hugging Face Hub Status**: `READY`
+- **Kaggle Dataset Status**: `READY`
 
-## Repository Folder Structure
-
-### `publication/dataset/`
-  - `dataset_final.json`
-  - `dataset_statistics.json`
-  - `schema.json`
-  - `metadata.json`
-  - `dataset_summary.md`
-
-### `publication/model/`
-  - `model_metadata.json`
-  - `training_summary.md`
-  - `evaluation.json`
-  - `weights_manifest.json`
-
-### `publication/kaggle/`
-  - `dataset/`
-  - `README.md`
-  - `dataset-metadata.json`
-  - `license`
-  - `sample_examples`
-  - `statistics`
-
-### `publication/huggingface/`
-  - `README.md`
-  - `train.jsonl`
-  - `dataset_info.json`
-  - `LICENSE`
-  - `MODEL_CARD.md`
-  - `DATASET_CARD.md`
-  - `config.json`
-
-### `publication/reports/`
-  - `publication_report.json`
-  - `publication_report.md`
-
-### `publication/release/`
-  - `CHANGELOG.md`
-
-## Validation Results
+## Validation Status Breakdown
 
 - **dataset_schema_validation**: `PASSED`
 - **model_checkpoint_validation**: `PASSED`
 - **kaggle_cli_validation**: `PASSED`
 - **huggingface_repo_validation**: `PASSED`
+
+## Generated Artifact Files
+
+- `C:\Users\surab\OneDrive\Documents\DATASET GENOME\dataset_genome\backend\publication\dataset\dataset_final.json`
+- `C:\Users\surab\OneDrive\Documents\DATASET GENOME\dataset_genome\backend\publication\dataset\dataset_statistics.json`
+- `C:\Users\surab\OneDrive\Documents\DATASET GENOME\dataset_genome\backend\publication\dataset\schema.json`
+- `C:\Users\surab\OneDrive\Documents\DATASET GENOME\dataset_genome\backend\publication\dataset\metadata.json`
+- `C:\Users\surab\OneDrive\Documents\DATASET GENOME\dataset_genome\backend\publication\dataset\dataset_summary.md`
+- `C:\Users\surab\OneDrive\Documents\DATASET GENOME\dataset_genome\backend\publication\model\model_metadata.json`
+- `C:\Users\surab\OneDrive\Documents\DATASET GENOME\dataset_genome\backend\publication\model\training_summary.md`
+- `C:\Users\surab\OneDrive\Documents\DATASET GENOME\dataset_genome\backend\publication\model\evaluation.json`
+- `C:\Users\surab\OneDrive\Documents\DATASET GENOME\dataset_genome\backend\publication\model\weights_manifest.json`
+- `C:\Users\surab\OneDrive\Documents\DATASET GENOME\dataset_genome\backend\publication\release\CHANGELOG.md`
+- `C:\Users\surab\OneDrive\Documents\DATASET GENOME\dataset_genome\backend\publication\kaggle\dataset-metadata.json`
+- `C:\Users\surab\OneDrive\Documents\DATASET GENOME\dataset_genome\backend\publication\kaggle\README.md`
+- `C:\Users\surab\OneDrive\Documents\DATASET GENOME\dataset_genome\backend\publication\huggingface\DATASET_CARD.md`
+- `C:\Users\surab\OneDrive\Documents\DATASET GENOME\dataset_genome\backend\publication\huggingface\MODEL_CARD.md`
 
 ---
 *(Generated automatically by Dataset Genome Publication & Open Source Engine)*

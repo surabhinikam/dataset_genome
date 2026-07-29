@@ -1,16 +1,16 @@
 {
   "version": "v2.0-adaptive",
-  "total_samples": 20,
-  "adaptive_score": 85.3,
-  "training_ready": true,
+  "total_samples": 15,
+  "adaptive_score": 79.0,
+  "training_ready": false,
   "domain_distribution": {
-    "Agriculture": 20
+    "Agriculture": 15
   },
   "difficulty_distribution": {
-    "hard": 10,
-    "medium": 10
+    "hard": 8,
+    "medium": 7
   },
   "experiment_type_distribution": {
-    "observational_study": 20
+    "observational_study": 15
   }
 }

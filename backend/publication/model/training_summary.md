@@ -1,5 +1,5 @@
 # AutoScientist Training Summary (`v1.0`)
 
-- **Job ID**: `job-auto-fc3e62f3`
+- **Job ID**: `job-auto-9fbfec22`
 - **Reasoning Quality**: `88.5 / 100`
 - **Hypothesis Accuracy**: `84.0%`

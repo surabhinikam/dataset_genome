@@ -1,7 +1,7 @@
 {
   "version": "v2.0-adaptive",
-  "samples": 20,
+  "samples": 15,
   "domains": {
-    "Agriculture": 20
+    "Agriculture": 15
   }
 }
