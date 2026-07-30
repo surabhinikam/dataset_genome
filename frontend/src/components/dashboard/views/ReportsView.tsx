@@ -47,7 +47,7 @@ export const ReportsView: React.FC = () => {
     },
   ];
 
-  const handleDownload = (filename: str) => {
+  const handleDownload = (filename: string) => {
     const element = document.createElement("a");
     const file = new Blob([`# Sample Download: ${filename}\nGenerated automatically by Dataset Genome AI Platform.`], { type: "text/plain" });
     element.href = URL.createObjectURL(file);
