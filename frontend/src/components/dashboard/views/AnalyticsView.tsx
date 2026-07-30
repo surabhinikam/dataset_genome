@@ -145,7 +145,7 @@ export const AnalyticsView: React.FC = () => {
           <div className="h-60">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
-                <Pie data={domainDistribution} dataKey="records" nameKey="name" cx="50%" cy="50%" outerRadius={85} label={(e) => `${e.name} (${e.records})`}>
+                <Pie data={domainDistribution} dataKey="records" nameKey="name" cx="50%" cy="50%" outerRadius={85} label={({ name, records }: any) => `${name} (${records})`}>
                   {domainDistribution.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
