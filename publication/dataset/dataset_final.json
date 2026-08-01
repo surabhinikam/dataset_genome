@@ -1,0 +1,302 @@
+[
+  {
+    "id": "rec-agriculture-001-ebabe2",
+    "domain": "Agriculture",
+    "difficulty": "hard",
+    "prompt": "Evaluate scientific dataset anomaly in Agriculture (Sample #1): Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. Formulate primary hypothesis and experimental validation design.",
+    "context": "Soil moisture and crop yield telemetry collected across 500 agricultural test plots.",
+    "observation": "Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. (Trial Iteration #1)",
+    "identified_problem": "Micro-nutrient imbalance (Zinc deficiency) inhibiting nitrogen absorption.",
+    "research_gap": "Lack of real-time multi-spectral soil mineral interaction modeling.",
+    "primary_hypothesis": "Foliar application of chelated zinc will restore nitrogen uptake and increase yield by >= 10%.",
+    "alternative_hypothesis": "Soil compaction is restricting root growth independently of mineral availability.",
+    "experiment_design": "Split-plot randomized control trial applying 2.5 kg/ha chelated zinc vs baseline control.",
+    "control_variables": [
+      "Nitrogen application rate",
+      "Irrigation volume",
+      "Solar radiation"
+    ],
+    "evaluation_metrics": [
+      "yield_per_hectare",
+      "leaf_zinc_concentration",
+      "nitrogen_use_efficiency"
+    ],
+    "expected_result": "Leaf zinc concentration increases above 25 ppm, boosting crop yield by 12%.",
+    "failure_cases": [
+      "Heavy rainfall leaching foliar spray",
+      "Soil pH below 5.5 locking zinc availability"
+    ],
+    "scientific_conclusion": "Zinc supplementation resolves micronutrient bottleneck and maximizes nitrogen fertilizer efficiency.",
+    "created_at": "2026-08-01 09:11:42.368904"
+  },
+  {
+    "id": "rec-agriculture-002-9e40cb",
+    "domain": "Agriculture",
+    "difficulty": "medium",
+    "prompt": "Evaluate scientific dataset anomaly in Agriculture (Sample #2): Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. Formulate primary hypothesis and experimental validation design.",
+    "context": "Soil moisture and crop yield telemetry collected across 500 agricultural test plots.",
+    "observation": "Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. (Trial Iteration #2)",
+    "identified_problem": "Micro-nutrient imbalance (Zinc deficiency) inhibiting nitrogen absorption.",
+    "research_gap": "Lack of real-time multi-spectral soil mineral interaction modeling.",
+    "primary_hypothesis": "Foliar application of chelated zinc will restore nitrogen uptake and increase yield by >= 10%.",
+    "alternative_hypothesis": "Soil compaction is restricting root growth independently of mineral availability.",
+    "experiment_design": "Split-plot randomized control trial applying 2.5 kg/ha chelated zinc vs baseline control.",
+    "control_variables": [
+      "Nitrogen application rate",
+      "Irrigation volume",
+      "Solar radiation"
+    ],
+    "evaluation_metrics": [
+      "yield_per_hectare",
+      "leaf_zinc_concentration",
+      "nitrogen_use_efficiency"
+    ],
+    "expected_result": "Leaf zinc concentration increases above 25 ppm, boosting crop yield by 12%.",
+    "failure_cases": [
+      "Heavy rainfall leaching foliar spray",
+      "Soil pH below 5.5 locking zinc availability"
+    ],
+    "scientific_conclusion": "Zinc supplementation resolves micronutrient bottleneck and maximizes nitrogen fertilizer efficiency.",
+    "created_at": "2026-08-01 09:11:42.368941"
+  },
+  {
+    "id": "rec-agriculture-003-970539",
+    "domain": "Agriculture",
+    "difficulty": "hard",
+    "prompt": "Evaluate scientific dataset anomaly in Agriculture (Sample #3): Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. Formulate primary hypothesis and experimental validation design.",
+    "context": "Soil moisture and crop yield telemetry collected across 500 agricultural test plots.",
+    "observation": "Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. (Trial Iteration #3)",
+    "identified_problem": "Micro-nutrient imbalance (Zinc deficiency) inhibiting nitrogen absorption.",
+    "research_gap": "Lack of real-time multi-spectral soil mineral interaction modeling.",
+    "primary_hypothesis": "Foliar application of chelated zinc will restore nitrogen uptake and increase yield by >= 10%.",
+    "alternative_hypothesis": "Soil compaction is restricting root growth independently of mineral availability.",
+    "experiment_design": "Split-plot randomized control trial applying 2.5 kg/ha chelated zinc vs baseline control.",
+    "control_variables": [
+      "Nitrogen application rate",
+      "Irrigation volume",
+      "Solar radiation"
+    ],
+    "evaluation_metrics": [
+      "yield_per_hectare",
+      "leaf_zinc_concentration",
+      "nitrogen_use_efficiency"
+    ],
+    "expected_result": "Leaf zinc concentration increases above 25 ppm, boosting crop yield by 12%.",
+    "failure_cases": [
+      "Heavy rainfall leaching foliar spray",
+      "Soil pH below 5.5 locking zinc availability"
+    ],
+    "scientific_conclusion": "Zinc supplementation resolves micronutrient bottleneck and maximizes nitrogen fertilizer efficiency.",
+    "created_at": "2026-08-01 09:11:42.368965"
+  },
+  {
+    "id": "rec-agriculture-004-150967",
+    "domain": "Agriculture",
+    "difficulty": "medium",
+    "prompt": "Evaluate scientific dataset anomaly in Agriculture (Sample #4): Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. Formulate primary hypothesis and experimental validation design.",
+    "context": "Soil moisture and crop yield telemetry collected across 500 agricultural test plots.",
+    "observation": "Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. (Trial Iteration #4)",
+    "identified_problem": "Micro-nutrient imbalance (Zinc deficiency) inhibiting nitrogen absorption.",
+    "research_gap": "Lack of real-time multi-spectral soil mineral interaction modeling.",
+    "primary_hypothesis": "Foliar application of chelated zinc will restore nitrogen uptake and increase yield by >= 10%.",
+    "alternative_hypothesis": "Soil compaction is restricting root growth independently of mineral availability.",
+    "experiment_design": "Split-plot randomized control trial applying 2.5 kg/ha chelated zinc vs baseline control.",
+    "control_variables": [
+      "Nitrogen application rate",
+      "Irrigation volume",
+      "Solar radiation"
+    ],
+    "evaluation_metrics": [
+      "yield_per_hectare",
+      "leaf_zinc_concentration",
+      "nitrogen_use_efficiency"
+    ],
+    "expected_result": "Leaf zinc concentration increases above 25 ppm, boosting crop yield by 12%.",
+    "failure_cases": [
+      "Heavy rainfall leaching foliar spray",
+      "Soil pH below 5.5 locking zinc availability"
+    ],
+    "scientific_conclusion": "Zinc supplementation resolves micronutrient bottleneck and maximizes nitrogen fertilizer efficiency.",
+    "created_at": "2026-08-01 09:11:42.368991"
+  },
+  {
+    "id": "rec-agriculture-005-69f401",
+    "domain": "Agriculture",
+    "difficulty": "hard",
+    "prompt": "Evaluate scientific dataset anomaly in Agriculture (Sample #5): Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. Formulate primary hypothesis and experimental validation design.",
+    "context": "Soil moisture and crop yield telemetry collected across 500 agricultural test plots.",
+    "observation": "Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. (Trial Iteration #5)",
+    "identified_problem": "Micro-nutrient imbalance (Zinc deficiency) inhibiting nitrogen absorption.",
+    "research_gap": "Lack of real-time multi-spectral soil mineral interaction modeling.",
+    "primary_hypothesis": "Foliar application of chelated zinc will restore nitrogen uptake and increase yield by >= 10%.",
+    "alternative_hypothesis": "Soil compaction is restricting root growth independently of mineral availability.",
+    "experiment_design": "Split-plot randomized control trial applying 2.5 kg/ha chelated zinc vs baseline control.",
+    "control_variables": [
+      "Nitrogen application rate",
+      "Irrigation volume",
+      "Solar radiation"
+    ],
+    "evaluation_metrics": [
+      "yield_per_hectare",
+      "leaf_zinc_concentration",
+      "nitrogen_use_efficiency"
+    ],
+    "expected_result": "Leaf zinc concentration increases above 25 ppm, boosting crop yield by 12%.",
+    "failure_cases": [
+      "Heavy rainfall leaching foliar spray",
+      "Soil pH below 5.5 locking zinc availability"
+    ],
+    "scientific_conclusion": "Zinc supplementation resolves micronutrient bottleneck and maximizes nitrogen fertilizer efficiency.",
+    "created_at": "2026-08-01 09:11:42.369011"
+  },
+  {
+    "id": "rec-agriculture-006-488e9f",
+    "domain": "Agriculture",
+    "difficulty": "medium",
+    "prompt": "Evaluate scientific dataset anomaly in Agriculture (Sample #6): Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. Formulate primary hypothesis and experimental validation design.",
+    "context": "Soil moisture and crop yield telemetry collected across 500 agricultural test plots.",
+    "observation": "Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. (Trial Iteration #6)",
+    "identified_problem": "Micro-nutrient imbalance (Zinc deficiency) inhibiting nitrogen absorption.",
+    "research_gap": "Lack of real-time multi-spectral soil mineral interaction modeling.",
+    "primary_hypothesis": "Foliar application of chelated zinc will restore nitrogen uptake and increase yield by >= 10%.",
+    "alternative_hypothesis": "Soil compaction is restricting root growth independently of mineral availability.",
+    "experiment_design": "Split-plot randomized control trial applying 2.5 kg/ha chelated zinc vs baseline control.",
+    "control_variables": [
+      "Nitrogen application rate",
+      "Irrigation volume",
+      "Solar radiation"
+    ],
+    "evaluation_metrics": [
+      "yield_per_hectare",
+      "leaf_zinc_concentration",
+      "nitrogen_use_efficiency"
+    ],
+    "expected_result": "Leaf zinc concentration increases above 25 ppm, boosting crop yield by 12%.",
+    "failure_cases": [
+      "Heavy rainfall leaching foliar spray",
+      "Soil pH below 5.5 locking zinc availability"
+    ],
+    "scientific_conclusion": "Zinc supplementation resolves micronutrient bottleneck and maximizes nitrogen fertilizer efficiency.",
+    "created_at": "2026-08-01 09:11:42.369029"
+  },
+  {
+    "id": "rec-agriculture-007-7f0338",
+    "domain": "Agriculture",
+    "difficulty": "hard",
+    "prompt": "Evaluate scientific dataset anomaly in Agriculture (Sample #7): Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. Formulate primary hypothesis and experimental validation design.",
+    "context": "Soil moisture and crop yield telemetry collected across 500 agricultural test plots.",
+    "observation": "Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. (Trial Iteration #7)",
+    "identified_problem": "Micro-nutrient imbalance (Zinc deficiency) inhibiting nitrogen absorption.",
+    "research_gap": "Lack of real-time multi-spectral soil mineral interaction modeling.",
+    "primary_hypothesis": "Foliar application of chelated zinc will restore nitrogen uptake and increase yield by >= 10%.",
+    "alternative_hypothesis": "Soil compaction is restricting root growth independently of mineral availability.",
+    "experiment_design": "Split-plot randomized control trial applying 2.5 kg/ha chelated zinc vs baseline control.",
+    "control_variables": [
+      "Nitrogen application rate",
+      "Irrigation volume",
+      "Solar radiation"
+    ],
+    "evaluation_metrics": [
+      "yield_per_hectare",
+      "leaf_zinc_concentration",
+      "nitrogen_use_efficiency"
+    ],
+    "expected_result": "Leaf zinc concentration increases above 25 ppm, boosting crop yield by 12%.",
+    "failure_cases": [
+      "Heavy rainfall leaching foliar spray",
+      "Soil pH below 5.5 locking zinc availability"
+    ],
+    "scientific_conclusion": "Zinc supplementation resolves micronutrient bottleneck and maximizes nitrogen fertilizer efficiency.",
+    "created_at": "2026-08-01 09:11:42.369053"
+  },
+  {
+    "id": "rec-agriculture-008-6636d9",
+    "domain": "Agriculture",
+    "difficulty": "medium",
+    "prompt": "Evaluate scientific dataset anomaly in Agriculture (Sample #8): Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. Formulate primary hypothesis and experimental validation design.",
+    "context": "Soil moisture and crop yield telemetry collected across 500 agricultural test plots.",
+    "observation": "Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. (Trial Iteration #8)",
+    "identified_problem": "Micro-nutrient imbalance (Zinc deficiency) inhibiting nitrogen absorption.",
+    "research_gap": "Lack of real-time multi-spectral soil mineral interaction modeling.",
+    "primary_hypothesis": "Foliar application of chelated zinc will restore nitrogen uptake and increase yield by >= 10%.",
+    "alternative_hypothesis": "Soil compaction is restricting root growth independently of mineral availability.",
+    "experiment_design": "Split-plot randomized control trial applying 2.5 kg/ha chelated zinc vs baseline control.",
+    "control_variables": [
+      "Nitrogen application rate",
+      "Irrigation volume",
+      "Solar radiation"
+    ],
+    "evaluation_metrics": [
+      "yield_per_hectare",
+      "leaf_zinc_concentration",
+      "nitrogen_use_efficiency"
+    ],
+    "expected_result": "Leaf zinc concentration increases above 25 ppm, boosting crop yield by 12%.",
+    "failure_cases": [
+      "Heavy rainfall leaching foliar spray",
+      "Soil pH below 5.5 locking zinc availability"
+    ],
+    "scientific_conclusion": "Zinc supplementation resolves micronutrient bottleneck and maximizes nitrogen fertilizer efficiency.",
+    "created_at": "2026-08-01 09:11:42.369075"
+  },
+  {
+    "id": "rec-agriculture-009-ed6fde",
+    "domain": "Agriculture",
+    "difficulty": "hard",
+    "prompt": "Evaluate scientific dataset anomaly in Agriculture (Sample #9): Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. Formulate primary hypothesis and experimental validation design.",
+    "context": "Soil moisture and crop yield telemetry collected across 500 agricultural test plots.",
+    "observation": "Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. (Trial Iteration #9)",
+    "identified_problem": "Micro-nutrient imbalance (Zinc deficiency) inhibiting nitrogen absorption.",
+    "research_gap": "Lack of real-time multi-spectral soil mineral interaction modeling.",
+    "primary_hypothesis": "Foliar application of chelated zinc will restore nitrogen uptake and increase yield by >= 10%.",
+    "alternative_hypothesis": "Soil compaction is restricting root growth independently of mineral availability.",
+    "experiment_design": "Split-plot randomized control trial applying 2.5 kg/ha chelated zinc vs baseline control.",
+    "control_variables": [
+      "Nitrogen application rate",
+      "Irrigation volume",
+      "Solar radiation"
+    ],
+    "evaluation_metrics": [
+      "yield_per_hectare",
+      "leaf_zinc_concentration",
+      "nitrogen_use_efficiency"
+    ],
+    "expected_result": "Leaf zinc concentration increases above 25 ppm, boosting crop yield by 12%.",
+    "failure_cases": [
+      "Heavy rainfall leaching foliar spray",
+      "Soil pH below 5.5 locking zinc availability"
+    ],
+    "scientific_conclusion": "Zinc supplementation resolves micronutrient bottleneck and maximizes nitrogen fertilizer efficiency.",
+    "created_at": "2026-08-01 09:11:42.369095"
+  },
+  {
+    "id": "rec-agriculture-010-b7a54d",
+    "domain": "Agriculture",
+    "difficulty": "medium",
+    "prompt": "Evaluate scientific dataset anomaly in Agriculture (Sample #10): Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. Formulate primary hypothesis and experimental validation design.",
+    "context": "Soil moisture and crop yield telemetry collected across 500 agricultural test plots.",
+    "observation": "Unexpected 14% drop in crop yield despite optimal nitrogen fertilizer application. (Trial Iteration #10)",
+    "identified_problem": "Micro-nutrient imbalance (Zinc deficiency) inhibiting nitrogen absorption.",
+    "research_gap": "Lack of real-time multi-spectral soil mineral interaction modeling.",
+    "primary_hypothesis": "Foliar application of chelated zinc will restore nitrogen uptake and increase yield by >= 10%.",
+    "alternative_hypothesis": "Soil compaction is restricting root growth independently of mineral availability.",
+    "experiment_design": "Split-plot randomized control trial applying 2.5 kg/ha chelated zinc vs baseline control.",
+    "control_variables": [
+      "Nitrogen application rate",
+      "Irrigation volume",
+      "Solar radiation"
+    ],
+    "evaluation_metrics": [
+      "yield_per_hectare",
+      "leaf_zinc_concentration",
+      "nitrogen_use_efficiency"
+    ],
+    "expected_result": "Leaf zinc concentration increases above 25 ppm, boosting crop yield by 12%.",
+    "failure_cases": [
+      "Heavy rainfall leaching foliar spray",
+      "Soil pH below 5.5 locking zinc availability"
+    ],
+    "scientific_conclusion": "Zinc supplementation resolves micronutrient bottleneck and maximizes nitrogen fertilizer efficiency.",
+    "created_at": "2026-08-01 09:11:42.369118"
+  }
+]

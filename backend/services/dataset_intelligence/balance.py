@@ -27,10 +27,13 @@ class BalanceProfiler(BaseProfiler):
         majority_class_ratios: dict[str, float] = {}
         imbalanced_columns: List[str] = []
 
-        # Filter categorical or object or low-cardinality discrete columns
+        # Filter categorical or object/string or low-cardinality discrete columns.
+        # pandas >= 2.x on Python 3.13 uses StringDtype ("str") instead of "object"
+        # for string columns, so dtype == "object" no longer matches.  Use the
+        # dtype-agnostic pd.api.types.is_string_dtype() to cover both cases.
         cat_cols = [
             col for col in df.columns
-            if df[col].dtype == "object"
+            if pd.api.types.is_string_dtype(df[col])
             or df[col].dtype.name == "category"
             or (pd.api.types.is_numeric_dtype(df[col]) and df[col].nunique() <= 10)
         ]

@@ -1,0 +1,9 @@
+{
+  "title": "Dataset Genome Scientific Reasoning Benchmark",
+  "id": "datasetgenome/dataset-genome-scientific-reasoning",
+  "licenses": [
+    {
+      "name": "CC0-1.0"
+    }
+  ]
+}

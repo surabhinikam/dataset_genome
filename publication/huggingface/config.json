@@ -1,0 +1,7 @@
+{
+  "architectures": [
+    "AutoScientistForCausalLM"
+  ],
+  "model_type": "autoscientist",
+  "job_id": "job-auto-d4b408b2"
+}

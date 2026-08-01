@@ -124,40 +124,64 @@ def test_gemini_client_without_api_key():
 
 
 def test_gemini_client_with_http_mock(monkeypatch):
-    """Test GeminiNarratorClient with mocked HTTP response."""
-    mock_resp_data = {
-        "candidates": [
-            {
-                "content": {
-                    "parts": [
-                        {
-                            "text": json.dumps({
-                                "scientific_summary": "Mocked Gemini scientific narrative",
-                                "executive_summary": "Mocked Gemini executive narrative",
-                                "technical_summary": "Mocked Gemini technical narrative",
-                                "business_summary": "Mocked Gemini business narrative",
-                            })
-                        }
-                    ]
-                }
-            }
-        ]
-    }
+    """Test GeminiNarratorClient with mocked SDK response.
 
-    class MockResponse:
+    The production code preferentially uses the google.generativeai SDK when it
+    is installed (the ImportError fallback branch is only taken when the package
+    is absent).  Patching urllib.request.urlopen therefore has no effect when the
+    SDK is present — the real generate_content() would be called instead, hitting
+    the network and failing with an invalid API key.
+
+    Fix: monkeypatch google.generativeai.GenerativeModel.generate_content so that
+    no real network request is made, regardless of whether the SDK is installed.
+    We also patch urllib.request.urlopen as a belt-and-suspenders guard for
+    environments where the SDK is not installed and the HTTP branch is taken.
+    """
+    _mock_json = json.dumps({
+        "scientific_summary": "Mocked Gemini scientific narrative",
+        "executive_summary": "Mocked Gemini executive narrative",
+        "technical_summary": "Mocked Gemini technical narrative",
+        "business_summary": "Mocked Gemini business narrative",
+    })
+
+    # --- SDK branch mock ---------------------------------------------------
+    # Patch google.generativeai.GenerativeModel.generate_content so the SDK
+    # path in GeminiNarratorClient.generate_explanation() never reaches the
+    # network.  The production code only reads `response.text`, so our mock
+    # object only needs that attribute.
+    class _MockGenerateContentResponse:
+        text = _mock_json
+
+    import google.generativeai as genai
+    monkeypatch.setattr(
+        genai.GenerativeModel,
+        "generate_content",
+        lambda self, prompt: _MockGenerateContentResponse(),
+    )
+
+    # --- HTTP branch mock (belt-and-suspenders) ----------------------------
+    # Covers environments where google.generativeai is NOT installed and the
+    # urllib fallback branch is taken instead.
+    _mock_http_body = json.dumps({
+        "candidates": [{
+            "content": {
+                "parts": [{"text": _mock_json}]
+            }
+        }]
+    }).encode("utf-8")
+
+    class _MockHTTPResponse:
         def read(self):
-            return json.dumps(mock_resp_data).encode("utf-8")
+            return _mock_http_body
         def __enter__(self):
             return self
         def __exit__(self, *args):
             pass
 
-    def mock_urlopen(req, timeout=10.0):
-        return MockResponse()
-
     import urllib.request
-    monkeypatch.setattr(urllib.request, "urlopen", mock_urlopen)
+    monkeypatch.setattr(urllib.request, "urlopen", lambda req, timeout=10.0: _MockHTTPResponse())
 
+    # --- Exercise the client -----------------------------------------------
     gemini_client = GeminiNarratorClient(api_key="test-mock-api-key")
     explanation = gemini_client.generate_explanation(ExplanationTarget.HYPOTHESIS, {"title": "Test"})
     assert explanation.scientific_summary == "Mocked Gemini scientific narrative"

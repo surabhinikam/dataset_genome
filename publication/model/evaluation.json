@@ -1,0 +1,15 @@
+{
+  "experiment_id": "exp-bench-job-auto-d4b408b2",
+  "experiment_success": true,
+  "reasoning_quality_score": 88.5,
+  "hypothesis_accuracy": 0.84,
+  "confidence_score": 0.89,
+  "scientific_metrics": {
+    "f1_macro": 0.86,
+    "rmse_loss": 0.12,
+    "p_value_significance": 0.002
+  },
+  "domain_accuracies": {
+    "Agriculture": 0.91
+  }
+}

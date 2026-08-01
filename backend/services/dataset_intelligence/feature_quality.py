@@ -80,8 +80,10 @@ class FeatureQualityProfiler(BaseProfiler):
                         )
                     )
 
-            # 3. ID-like column check (100% unique string/object column)
-            if (df[col].dtype == "object" or df[col].dtype.name == "string") and total_rows > 10:
+            # 3. ID-like column check (100% unique string/object column with > 10 rows)
+            # pandas >= 2.x on Python 3.13 uses StringDtype whose .name is "str",
+            # not "object" or "string".  Use the dtype-agnostic helper to cover both.
+            if pd.api.types.is_string_dtype(df[col]) and total_rows > 10:
                 if num_unique == total_rows:
                     id_like_columns.append(str(col))
                     issues.append(
