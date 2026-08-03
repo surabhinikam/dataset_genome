@@ -25,6 +25,10 @@ class BenchmarkSample(BaseModel):
         ...,
         description="Difficulty level: Easy, Medium, Hard, Expert",
     )
+    reasoning_style: str = Field(
+        "Positive Result",
+        description="Enforced scientific reasoning style: Positive Result, Negative Result, Ambiguous Result, Conflicting Literature, Failed Experiment, Replication Study, Unexpected Observation",
+    )
     prompt: str = Field(..., description="Scientific inquiry prompt or question")
     context: str = Field(..., description="Experimental or observational context")
     observation: str = Field(..., description="Empirical evidence or phenomenon observation")
@@ -63,6 +67,7 @@ class BenchmarkSampleBuilder:
             "dataset_id": "dataset-genome-benchmark-v1.0",
             "domain": domain,
             "difficulty": difficulty,
+            "reasoning_style": "Positive Result",
             "prompt": "",
             "context": "",
             "observation": "",
@@ -80,6 +85,10 @@ class BenchmarkSampleBuilder:
 
     def set_dataset_id(self, dataset_id: str) -> "BenchmarkSampleBuilder":
         self._data["dataset_id"] = dataset_id
+        return self
+
+    def set_reasoning_style(self, reasoning_style: str) -> "BenchmarkSampleBuilder":
+        self._data["reasoning_style"] = reasoning_style
         return self
 
     def set_inquiry(self, prompt: str, context: str, observation: str) -> "BenchmarkSampleBuilder":

@@ -1,0 +1,52 @@
+{
+  "run_id": "run-20260803-b86f2ee6",
+  "current_stage": "Dashboard Refresh",
+  "status": "COMPLETED",
+  "progress_pct": 100.0,
+  "samples_generated": 200,
+  "validation_progress": "Complete",
+  "quality_score": 100.0,
+  "adaptive_score": 88.3,
+  "autoscientist_progress": "Complete",
+  "publication_status": "Complete",
+  "huggingface_status": "Complete",
+  "kaggle_status": "Complete",
+  "updated_at": "2026-08-03T15:21:09.996983",
+  "recent_logs": [
+    {
+      "timestamp": "15:21:09",
+      "datetime": "2026-08-03T15:21:09.714934",
+      "level": "WARNING",
+      "stage": "Publication",
+      "message": "Publication package warning: 1 validation error for BalanceReport\nimbalance_detected\n  Field required [type=missing, input_value={'is_balanced': True, 'do... 'balance_score': 100.0}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+    },
+    {
+      "timestamp": "15:21:09",
+      "datetime": "2026-08-03T15:21:09.717807",
+      "level": "INFO",
+      "stage": "Hugging Face Packaging",
+      "message": "Packaging Hugging Face Dataset payload..."
+    },
+    {
+      "timestamp": "15:21:09",
+      "datetime": "2026-08-03T15:21:09.720532",
+      "level": "INFO",
+      "stage": "Kaggle Packaging",
+      "message": "Packaging Kaggle Dataset payload..."
+    },
+    {
+      "timestamp": "15:21:09",
+      "datetime": "2026-08-03T15:21:09.723486",
+      "level": "INFO",
+      "stage": "Dashboard Refresh",
+      "message": "Generating dashboard files, leaderboard, & reproducible manifests..."
+    },
+    {
+      "timestamp": "15:21:09",
+      "datetime": "2026-08-03T15:21:09.984981",
+      "level": "SUCCESS",
+      "stage": "Dashboard Refresh",
+      "message": "Pipeline run completed successfully."
+    }
+  ]
+}

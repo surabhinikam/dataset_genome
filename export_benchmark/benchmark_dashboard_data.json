@@ -1,0 +1,131 @@
+{
+  "total_samples": 200,
+  "quality_score": 85.81,
+  "novelty": 85.0,
+  "adaptive_score": 88.3,
+  "reasoning_style_pie_chart": [
+    {
+      "name": "Positive Result",
+      "value": 29
+    },
+    {
+      "name": "Negative Result",
+      "value": 29
+    },
+    {
+      "name": "Ambiguous Result",
+      "value": 29
+    },
+    {
+      "name": "Conflicting Literature",
+      "value": 29
+    },
+    {
+      "name": "Failed Experiment",
+      "value": 28
+    },
+    {
+      "name": "Replication Study",
+      "value": 28
+    },
+    {
+      "name": "Unexpected Observation",
+      "value": 28
+    }
+  ],
+  "difficulty_pie_chart": [
+    {
+      "name": "Easy",
+      "value": 50
+    },
+    {
+      "name": "Medium",
+      "value": 50
+    },
+    {
+      "name": "Hard",
+      "value": 50
+    },
+    {
+      "name": "Expert",
+      "value": 50
+    }
+  ],
+  "domain_histogram": [
+    {
+      "domain": "Agriculture",
+      "count": 20
+    },
+    {
+      "domain": "Healthcare",
+      "count": 20
+    },
+    {
+      "domain": "Climate Science",
+      "count": 20
+    },
+    {
+      "domain": "Biology",
+      "count": 20
+    },
+    {
+      "domain": "Chemistry",
+      "count": 20
+    },
+    {
+      "domain": "Physics",
+      "count": 20
+    },
+    {
+      "domain": "Mathematics",
+      "count": 20
+    },
+    {
+      "domain": "Finance",
+      "count": 20
+    },
+    {
+      "domain": "HR",
+      "count": 20
+    },
+    {
+      "domain": "Market Analysis",
+      "count": 20
+    }
+  ],
+  "duplicate_rate": 0.0,
+  "top_domains": [
+    "Agriculture",
+    "Healthcare",
+    "Climate Science",
+    "Biology",
+    "Chemistry"
+  ],
+  "failure_types": [
+    {
+      "failure_type": "Uncontrolled environmental fluctuation during assay",
+      "count": 200
+    },
+    {
+      "failure_type": "Loss of baseline control specificity",
+      "count": 200
+    }
+  ],
+  "scientific_coverage": {
+    "domains_covered": 10,
+    "reasoning_styles_covered": 7,
+    "completeness_score": 98.2
+  },
+  "dataset_health": {
+    "schema_validation": "100% Pass",
+    "semantic_diversity": "High",
+    "health_status": "EXCELLENT"
+  },
+  "trend_over_time": [
+    {
+      "timestamp": "2026-08-03T15:21:09.670921",
+      "total_samples": 200,
+      "quality_score": 85.81
+    }
+  ]
+}

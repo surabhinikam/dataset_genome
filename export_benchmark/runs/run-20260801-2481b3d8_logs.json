@@ -1,0 +1,102 @@
+{
+  "run_info": {
+    "run_id": "run-20260801-2481b3d8",
+    "version_tag": "v1.0",
+    "start_time": "2026-08-01T14:02:28.894474",
+    "end_time": "2026-08-01T14:02:33.861303",
+    "duration_seconds": 4.97,
+    "status": "FAILED",
+    "current_stage": "Hugging Face Packaging",
+    "progress_pct": 85.0,
+    "samples_generated": 0,
+    "quality_score": 100.0,
+    "adaptive_score": 96.2,
+    "total_logs": 12
+  },
+  "logs": [
+    {
+      "timestamp": "14:02:28",
+      "datetime": "2026-08-01T14:02:28.894978",
+      "level": "INFO",
+      "stage": "Idle",
+      "message": "Initiating Master Pipeline execution for version 'v1.0'..."
+    },
+    {
+      "timestamp": "14:02:28",
+      "datetime": "2026-08-01T14:02:28.905017",
+      "level": "INFO",
+      "stage": "Generate Benchmark",
+      "message": "Synthesizing benchmark samples..."
+    },
+    {
+      "timestamp": "14:02:33",
+      "datetime": "2026-08-01T14:02:33.768029",
+      "level": "INFO",
+      "stage": "Validate",
+      "message": "Validating 10 samples..."
+    },
+    {
+      "timestamp": "14:02:33",
+      "datetime": "2026-08-01T14:02:33.810445",
+      "level": "INFO",
+      "stage": "Dataset Intelligence",
+      "message": "Extracting dataset intelligence & metadata..."
+    },
+    {
+      "timestamp": "14:02:33",
+      "datetime": "2026-08-01T14:02:33.816904",
+      "level": "INFO",
+      "stage": "Quality Analysis",
+      "message": "Calculating multi-dimensional quality scores..."
+    },
+    {
+      "timestamp": "14:02:33",
+      "datetime": "2026-08-01T14:02:33.825001",
+      "level": "INFO",
+      "stage": "Adaptive Data",
+      "message": "Computing Adaptive Benchmark Score..."
+    },
+    {
+      "timestamp": "14:02:33",
+      "datetime": "2026-08-01T14:02:33.830857",
+      "level": "INFO",
+      "stage": "AutoScientist",
+      "message": "Running AutoScientist reasoning adapter..."
+    },
+    {
+      "timestamp": "14:02:33",
+      "datetime": "2026-08-01T14:02:33.837572",
+      "level": "INFO",
+      "stage": "Evaluation",
+      "message": "Evaluating benchmark knowledge coverage..."
+    },
+    {
+      "timestamp": "14:02:33",
+      "datetime": "2026-08-01T14:02:33.844199",
+      "level": "INFO",
+      "stage": "Publication",
+      "message": "Building publication artifacts..."
+    },
+    {
+      "timestamp": "14:02:33",
+      "datetime": "2026-08-01T14:02:33.851691",
+      "level": "WARNING",
+      "stage": "Publication",
+      "message": "Publication package warning: 1 validation error for BalanceReport\nimbalance_detected\n  Field required [type=missing, input_value={'is_balanced': True, 'do... 'balance_score': 100.0}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+    },
+    {
+      "timestamp": "14:02:33",
+      "datetime": "2026-08-01T14:02:33.860864",
+      "level": "INFO",
+      "stage": "Hugging Face Packaging",
+      "message": "Packaging Hugging Face Dataset payload..."
+    },
+    {
+      "timestamp": "14:02:33",
+      "datetime": "2026-08-01T14:02:33.861444",
+      "level": "ERROR",
+      "stage": "Hugging Face Packaging",
+      "message": "Pipeline execution failed: 'ProductionHuggingFaceUploader' object has no attribute 'create_and_upload_dataset'"
+    }
+  ]
+}

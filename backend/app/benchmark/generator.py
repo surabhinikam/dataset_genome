@@ -29,17 +29,31 @@ SUPPORTED_DOMAINS = [
 DIFFICULTY_LEVELS = ["Easy", "Medium", "Hard", "Expert"]
 
 
+from app.benchmark.diversity_engine import DOMAIN_DIVERSITY_POOLS, ScientificDiversityEngine
+from app.benchmark.quality_scorer import BenchmarkQualityScorer
+
+REASONING_STYLES_LIST = [
+    "Positive Result", "Negative Result", "Ambiguous Result",
+    "Conflicting Literature", "Failed Experiment", "Replication Study",
+    "Unexpected Observation"
+]
+
+
 class BenchmarkGenerator:
     """
     Generator engine synthesizing official Dataset Genome Benchmark samples
-    across 10 scientific domains and 4 difficulty levels.
+    across 10 scientific domains, 4 difficulty levels, and 7 reasoning styles.
     """
+
+    def __init__(self) -> None:
+        self.diversity_engine = ScientificDiversityEngine()
 
     def generate_sample(
         self,
         domain: str = "Agriculture",
         difficulty: str = "Medium",
         index: int = 1,
+        reasoning_style: Optional[str] = None,
     ) -> BenchmarkSample:
         """
         Generate a single complete 16-field BenchmarkSample using BenchmarkSampleBuilder.
@@ -49,12 +63,16 @@ class BenchmarkGenerator:
         if difficulty not in DIFFICULTY_LEVELS:
             difficulty = "Medium"
 
+        if not reasoning_style or reasoning_style not in REASONING_STYLES_LIST:
+            reasoning_style = REASONING_STYLES_LIST[(index - 1) % len(REASONING_STYLES_LIST)]
+
         sample_id = f"bm-{domain.lower().replace(' ', '-')[:6]}-{difficulty.lower()[:3]}-{index:03d}-{uuid.uuid4().hex[:4]}"
 
         # Domain template data
-        templates = self._get_domain_templates(domain, difficulty)
+        templates = self._get_domain_templates(domain, difficulty, reasoning_style, index)
 
         builder = BenchmarkSampleBuilder(sample_id=sample_id, domain=domain, difficulty=difficulty)
+        builder.set_reasoning_style(reasoning_style)
         builder.set_inquiry(
             prompt=templates["prompt"],
             context=templates["context"],
@@ -79,10 +97,13 @@ class BenchmarkGenerator:
             "generated_by": "DatasetGenomeBenchmarkGenerator-v1.0",
             "domain_category": domain,
             "difficulty_rating": difficulty,
+            "reasoning_style": reasoning_style,
             "benchmark_version": "v1.0",
         })
 
-        return builder.build()
+        sample = builder.build()
+        sample = BenchmarkQualityScorer.attach_quality_scores(sample)
+        return sample
 
     def generate_benchmark_suite(
         self,
@@ -90,7 +111,7 @@ class BenchmarkGenerator:
         domains: Optional[List[str]] = None,
     ) -> List[BenchmarkSample]:
         """
-        Generate a complete benchmark dataset suite balanced across domains and difficulty levels.
+        Generate a complete benchmark dataset suite balanced across domains, difficulty levels, and reasoning styles.
         """
         target_domains = domains or SUPPORTED_DOMAINS
         logger.info(
@@ -102,205 +123,69 @@ class BenchmarkGenerator:
         global_idx = 0
         for dom in target_domains:
             for idx in range(1, samples_per_domain + 1):
-                # Cycle through difficulty levels uniformly across global sample count
                 diff = DIFFICULTY_LEVELS[global_idx % len(DIFFICULTY_LEVELS)]
-                sample = self.generate_sample(domain=dom, difficulty=diff, index=idx)
+                style = REASONING_STYLES_LIST[global_idx % len(REASONING_STYLES_LIST)]
+                sample = self.generate_sample(domain=dom, difficulty=diff, index=idx, reasoning_style=style)
                 samples.append(sample)
                 global_idx += 1
 
         logger.info(f"BenchmarkGenerator successfully generated {len(samples)} benchmark sample(s).")
         return samples
 
-    def _get_domain_templates(self, domain: str, difficulty: str) -> Dict[str, Any]:
-        """Return scientific templates tailored to domain and difficulty level."""
-        d = domain.lower()
-        if "agri" in d:
-            return {
-                "prompt": f"Analyze crop yield resistance under elevated soil salinity ({difficulty} complexity).",
-                "context": "Soil salinity levels increased by 3.2 dS/m in irrigated agricultural basins.",
-                "observation": "Halophytic maize variants maintain 88% stomatal conductance compared to glycophytic controls.",
-                "problem": "Unclear osmotic regulation pathway in drought-tolerant hybrid cultivars.",
-                "research_gap": "Lack of high-resolution transcriptomic tracking for sodium ion transporter genes.",
-                "primary_hypothesis": "Upregulation of HKT1;5 transporters drives vascular Na+ exclusion under saline stress.",
-                "alternative_hypothesis": "Osmotic adjustment is primarily mediated by proline biosynthesis pathway upregulation.",
-                "experiment_design": {
-                    "methodology": "Hydroponic salt stress trial with RNA-seq gene expression profiling",
-                    "variables": {"independent": "NaCl concentration (0-200 mM)", "dependent": "Yield & Na+/K+ ratio"},
-                    "control": "Non-saline nutrient solution baseline",
-                },
-                "evaluation_metrics": ["Biomass Dry Weight", "Na+/K+ Selectivity Ratio", "Stomatal Conductance", "Yield Index"],
-                "expected_results": "HKT1;5 expression increases 4.2-fold within 12h of NaCl exposure.",
-                "failure_cases": ["Hyper-accumulation of toxic Na+ in leaf tips", "Severe osmotic cell lysis"],
-                "scientific_conclusion": "Vascular ion exclusion via HKT1;5 upregulation preserves photosynthesis under salt stress.",
-            }
-        elif "health" in d:
-            return {
-                "prompt": f"Investigate biomarker kinetics for early detection of metabolic resistance ({difficulty} complexity).",
-                "context": "Phase II clinical cohort tracking glucose tolerance and systemic inflammation markers.",
-                "observation": "Elevated circulating IL-6 correlates with early insulin receptor desensitization.",
-                "problem": "Delayed clinical onset detection for metabolic insulin resistance.",
-                "research_gap": "Absence of predictive inflammatory biomarker panels for pre-symptomatic diagnosis.",
-                "primary_hypothesis": "IL-6 elevation precedes IRS-1 serine phosphorylation in skeletal muscle tissue.",
-                "alternative_hypothesis": "Free fatty acid accumulation directly triggers TNF-alpha receptor activation.",
-                "experiment_design": {
-                    "methodology": "Longitudinal serum profiling and hyperinsulinemic-euglycemic clamp assays",
-                    "variables": {"independent": "Serum IL-6 assay levels", "dependent": "Glucose disposal rate (M-value)"},
-                    "control": "Healthy normoglycemic age-matched controls",
-                },
-                "evaluation_metrics": ["M-value Glucose Disposal", "Serum IL-6 Concentration", "HOMA-IR Score"],
-                "expected_results": "IL-6 levels above 4.5 pg/mL predict HOMA-IR progression within 6 months.",
-                "failure_cases": ["Transient non-specific cytokine spikes during acute viral infection"],
-                "scientific_conclusion": "Pro-inflammatory IL-6 kinetics serve as a robust early biomarker for insulin resistance.",
-            }
-        elif "climate" in d:
-            return {
-                "prompt": f"Evaluate marine aerosol cloud albedo feedback loops ({difficulty} complexity).",
-                "context": "Satellite radiative flux observations across marine stratocumulus ocean decks.",
-                "observation": "Cloud droplet effective radius decreased from 14 µm to 9.5 µm downwind of shipping lanes.",
-                "problem": "Uncertainty in aerosol-cloud-radiation interaction radiative forcing estimates.",
-                "research_gap": "Inadequate parameterization of dimethyl sulfide aerosol nucleation rates in climate models.",
-                "primary_hypothesis": "Increased bio-aerosols enhance cloud albedo by 0.35 W/m² negative radiative forcing.",
-                "alternative_hypothesis": "Cloud thinning from dry-air entrainment offsets albedo brightening effects.",
-                "experiment_design": {
-                    "methodology": "Airborne cloud probe sampling and LES cloud resolving numerical simulation",
-                    "variables": {"independent": "Aerosol number concentration N_a", "dependent": "Cloud Optical Depth τ"},
-                    "control": "Pristine Southern Ocean marine boundary layer",
-                },
-                "evaluation_metrics": ["Cloud Droplet Number Density", "Shortwave Radiative Forcing", "Albedo Delta"],
-                "expected_results": "Twomey effect brightens stratocumulus decks by 8.2% under double aerosol loading.",
-                "failure_cases": ["Aerosol scavenging by precipitation out-washing"],
-                "scientific_conclusion": "Marine bio-aerosol nucleation produces net cooling radiative forcing.",
-            }
-        elif "bio" in d:
-            return {
-                "prompt": f"Characterize CRISPR-Cas micro-RNA off-target binding kinetic rates ({difficulty} complexity).",
-                "context": "Single-molecule fluorescence resonance energy transfer (smFRET) single-cell imaging.",
-                "observation": "Cas12a exhibits extended residence time on DNA mismatches at positions 18-20.",
-                "problem": "Unintended genome editing at distal off-target sites.",
-                "research_gap": "Structural basis of mismatch tolerance in the PAM-distal gRNA duplex region.",
-                "primary_hypothesis": "Loop 1 conformational flexibility accommodates seed-distal transition mismatches.",
-                "alternative_hypothesis": "Supercoiling torque accelerates off-target R-loop propagation.",
-                "experiment_design": {
-                    "methodology": "smFRET and high-throughput GUIDE-seq off-target profiling",
-                    "variables": {"independent": "gRNA-target mismatch position", "dependent": "Cleavage Rate k_cleave"},
-                    "control": "Fully matched target sequence",
-                },
-                "evaluation_metrics": ["Cleavage Rate k_cleave", "Off-Target Ratio", "smFRET Efficiency E"],
-                "expected_results": "Engineered Cas12a variant reduces off-target cleavage by 14-fold.",
-                "failure_cases": ["Loss of target site cleavage activity"],
-                "scientific_conclusion": "Restricting Loop 1 flexibility restores high-fidelity genome editing specificity.",
-            }
-        elif "chem" in d:
-            return {
-                "prompt": f"Synthesize high-efficiency MOF catalysts for CO2 photoreduction ({difficulty} complexity).",
-                "context": "Solar-driven carbon dioxide conversion to synthetic C2 hydrocarbon fuels.",
-                "observation": "Copper-doped ZIF-8 metal-organic framework exhibits 92% selectivity for ethylene.",
-                "problem": "Low solar-to-fuel conversion efficiency and catalytic degradation.",
-                "research_gap": "Unknown charge transfer dynamics across metal node to organic linker interface.",
-                "primary_hypothesis": "Interfacial Cu-N site binding lowers the activation energy for C-C coupling.",
-                "alternative_hypothesis": "Light absorption occurs exclusively via organic linker ligand-to-metal charge transfer.",
-                "experiment_design": {
-                    "methodology": "Transient absorption spectroscopy and in-situ DRIFTS reaction monitoring",
-                    "variables": {"independent": "Dopant Cu molar concentration", "dependent": "Ethylene Turnover Frequency (TOF)"},
-                    "control": "Undoped ZIF-8 baseline MOF",
-                },
-                "evaluation_metrics": ["Turnover Frequency (TOF)", "Faradaic Efficiency (%)", "CO2 Conversion Rate"],
-                "expected_results": "Cu-ZIF-8 achieves 4.8 mmol/g/h ethylene yield under 1 sun illumination.",
-                "failure_cases": ["Leaching of active Cu species into aqueous electrolyte"],
-                "scientific_conclusion": "Interfacial dual Cu-N active sites lower C-C coupling kinetic barrier.",
-            }
-        elif "phys" in d:
-            return {
-                "prompt": f"Map topological edge states in twisted bilayer graphene devices ({difficulty} complexity).",
-                "context": "Cryogenic transport measurements in magic-angle (1.1°) twisted bilayer graphene.",
-                "observation": "Quantized Hall resistance peaks observed at fractional moiré band filling factors.",
-                "problem": "Elucidating origin of correlated insulating states and unconventional superconductivity.",
-                "research_gap": "Role of electron-phonon coupling vs strong Coulomb interactions in flat moiré bands.",
-                "primary_hypothesis": "Inter-layer flat band hybridization generates non-trivial Chern number topological states.",
-                "alternative_hypothesis": "Nematic order breaks rotational symmetry independent of topology.",
-                "experiment_design": {
-                    "methodology": "Scanning tunneling microscopy (STM) and low-temperature magnetotransport",
-                    "variables": {"independent": "Back-gate voltage V_bg & twist angle θ", "dependent": "Hall Resistance R_xy"},
-                    "control": "Untwisted monolayer graphene device",
-                },
-                "evaluation_metrics": ["Hall Resistance Quantization", "Superconducting Transition Temp T_c", "Moiré Band Gap"],
-                "expected_results": "Quantized conductance R_xy = h/2e² verified at filling factor ν = 2.",
-                "failure_cases": ["Thermal broadening of flat band gap above 4.2 K"],
-                "scientific_conclusion": "Topological flat moiré bands drive room-pressure correlated electronic states.",
-            }
-        elif "math" in d:
-            return {
-                "prompt": f"Prove bound limits for non-linear PDE transport stability ({difficulty} complexity).",
-                "context": "Navier-Stokes smooth solution global existence and energy conservation bounds.",
-                "observation": "Sobolev norm ||u||_H^s remains bounded under high-frequency turbulent perturbations.",
-                "problem": "Preventing finite-time singularity blow-up in 3D incompressible fluid dynamics.",
-                "research_gap": "Lack of global A-priori estimates for vorticity stretching terms.",
-                "primary_hypothesis": "Directional alignment of vorticity vectors suppresses non-linear energy cascade.",
-                "alternative_hypothesis": "Viscous dissipation at Kolmogorov length scale dominates independent of alignment.",
-                "experiment_design": {
-                    "methodology": "Spectral numerical simulation and analytical energy-method estimates",
-                    "variables": {"independent": "Reynolds Number Re", "dependent": "Maximum Enstrophy Ω_max"},
-                    "control": "Standard 2D Euler laminar flow baseline",
-                },
-                "evaluation_metrics": ["Sobolev H^s Norm Bound", "Enstrophy Dissipation Rate", "Spectral Energy Decay"],
-                "expected_results": "Global smoothness preserved for all t > 0 under directional alignment condition.",
-                "failure_cases": ["Local enstrophy accumulation exceeding critical threshold"],
-                "scientific_conclusion": "Vorticity alignment prevents finite-time singularity formation in 3D transport.",
-            }
-        elif "fin" in d:
-            return {
-                "prompt": f"Model systemic risk propagation in algorithmic market liquidity ({difficulty} complexity).",
-                "context": "High-frequency order book dynamics across interconnected financial exchanges.",
-                "observation": "Flash crash cascade triggered when order cancel-to-fill ratio exceeded 45:1.",
-                "problem": "Sudden market liquidity evaporations in high-frequency trading environments.",
-                "research_gap": "Inadequate cross-exchange feedback loop dynamics in traditional Black-Scholes risk models.",
-                "primary_hypothesis": "Algorithmic execution correlation causes positive feedback liquidity contraction.",
-                "alternative_hypothesis": "Macroeconomic news sentiment shock drives order book imbalance independently.",
-                "experiment_design": {
-                    "methodology": "Agent-based market microstructure simulation and network contagion graph analysis",
-                    "variables": {"independent": "Algo correlation coefficient ρ", "dependent": "Bid-Ask Spread Variance"},
-                    "control": "Uncorrelated random market-maker baseline",
-                },
-                "evaluation_metrics": ["Value-at-Risk (VaR) Delta", "Bid-Ask Spread Variance", "Liquidity Recovery Time"],
-                "expected_results": "Cross-algo correlation > 0.75 increases systemic liquidity crash probability by 3.8x.",
-                "failure_cases": ["Spurious correlation artifacts during low-volume trading windows"],
-                "scientific_conclusion": "Correlated algorithmic order execution amplifies systemic market liquidity risk.",
-            }
-        elif "hr" in d:
-            return {
-                "prompt": f"Analyze organizational attrition predictors using network centrality ({difficulty} complexity).",
-                "context": "Enterprise internal communication graphs and project team interaction metadata.",
-                "observation": "Employees experiencing a 30% drop in eigenvector centrality exhibit 3.2x higher turnover.",
-                "problem": "Reactive employee retention strategies leading to institutional knowledge loss.",
-                "research_gap": "Underestimating social network isolation as a primary driver of workplace burnout.",
-                "primary_hypothesis": "Loss of informal communication hub status precedes voluntary resignation by 90 days.",
-                "alternative_hypothesis": "Direct compensation dissatisfaction is the sole statistically significant attrition driver.",
-                "experiment_design": {
-                    "methodology": "Anonymized graph neural network (GNN) centrality tracking and longitudinal survival analysis",
-                    "variables": {"independent": "Graph Eigenvector Centrality", "dependent": "Retention Probability (Hazard Ratio)"},
-                    "control": "Stable project team baseline cohort",
-                },
-                "evaluation_metrics": ["Hazard Ratio (HR)", "Eigenvector Centrality Delta", "Model AUROC Score"],
-                "expected_results": "GNN network centrality features boost attrition prediction accuracy from 68% to 89%.",
-                "failure_cases": ["Graph sparsity in remote-first team communication channels"],
-                "scientific_conclusion": "Informal organizational network isolation is a strong predictive indicator of attrition.",
-            }
-        else:  # Market Analysis
-            return {
-                "prompt": f"Predict consumer technology adoption curves under macro-inflation ({difficulty} complexity).",
-                "context": "Retail point-of-sale scanner data and macroeconomic consumer confidence indices.",
-                "observation": "Premium consumer hardware demand shifted towards subscription leasing models.",
-                "problem": "Inaccurate demand forecasting during stagflation economic cycles.",
-                "research_gap": "Lack of price elasticity models incorporating real wage purchasing power degradation.",
-                "primary_hypothesis": "Substitution effect drives 42% growth in hardware-as-a-service market share.",
-                "alternative_hypothesis": "Consumer delay of purchase decisions accounts for total market volume shift.",
-                "experiment_design": {
-                    "methodology": "Hierarchical Bayesian choice modeling and cross-category econometric regression",
-                    "variables": {"independent": "Real Wage Inflation Rate", "dependent": "Hardware Subscription Market Share"},
-                    "control": "Historical baseline economic growth expansion cycle",
-                },
-                "evaluation_metrics": ["Price Elasticity Coefficient", "Subscription Penetration Rate", "Forecast MAPE"],
-                "expected_results": "Subscription model preference increases linearly when inflation exceeds 5.0%.",
-                "failure_cases": ["Supply chain inventory bottlenecks skewing consumer choice availability"],
-                "scientific_conclusion": "Stagflation shifts consumer technology purchasing preference toward recurring subscription models.",
-            }
+    def _get_domain_templates(self, domain: str, difficulty: str, reasoning_style: str, index: int = 1) -> Dict[str, Any]:
+        """Return scientific templates tailored to domain, difficulty level, and reasoning style."""
+        pool_item = self.diversity_engine.get_diverse_pool(domain, index)
+        topic = pool_item["topic"]
+        organism = pool_item["organism"]
+
+        # Difficulty metric counts
+        metric_counts = {"Easy": 3, "Medium": 4, "Hard": 5, "Expert": 6}
+        num_metrics = metric_counts.get(difficulty, 4)
+        base_metrics = pool_item.get("metrics", ["Primary Yield Metric", "Statistical Significance (p)", "Effect Size (d)"])
+        metrics = (base_metrics * 2)[:num_metrics]
+
+        # Reasoning style context adjustments
+        if reasoning_style == "Negative Result":
+            obs = f"Empirical testing revealed no significant shift in {organism} response under target treatment (p = 0.42)."
+            exp_res = f"Primary hypothesis disproved; treatment effect remains within null control bounds (Delta < 0.05)."
+            scientific_conc = f"Rigorous testing confirms a null relationship, refuting earlier uncalibrated models."
+        elif reasoning_style == "Ambiguous Result":
+            obs = f"Assay results for {organism} yielded high variance across replicates (95% CI [-0.12, 0.48])."
+            exp_res = f"Inconclusive trend observed; secondary power analysis indicates need for 4x larger sample cohort."
+            scientific_conc = f"Evidence remains inconclusive, highlighting critical measurement noise and confounding factors."
+        elif reasoning_style == "Failed Experiment":
+            obs = f"Severe measurement artifact detected due to calibration drift during {topic} assay execution."
+            exp_res = f"Experimental trial invalidated by thermal control breakdown at t=24h."
+            scientific_conc = f"Trial failed due to physical measurement artifacts, mandating revised experimental protocols."
+        elif reasoning_style == "Replication Study":
+            obs = f"Replication trial evaluated original landmark findings for {topic} in {organism} under revised controls."
+            exp_res = f"Landmark effect reproduced with high fidelity (R² = 0.94, p < 0.001)."
+            scientific_conc = f"Replication confirms robust generalizability of the original scientific phenomenon."
+        elif reasoning_style == "Unexpected Observation":
+            obs = f"Unpredicted secondary peak observed in {organism} transcriptomic expression during {topic} exposure."
+            exp_res = f"Primary hypothesis partially supported, but an unexpected alternative pathway emerged."
+            scientific_conc = f"Discovery of an unpredicted anomalous mechanism challenges prevailing domain models."
+        else:
+            obs = f"High-precision measurements of {organism} demonstrate a statistically significant 3.8-fold shift in response."
+            exp_res = f"Primary hypothesis supported; key evaluation metrics show > 3.5-fold improvement."
+            scientific_conc = f"Target mechanism confirmed as the primary driver of observed empirical phenomena."
+
+        return {
+            "prompt": f"Investigate {topic} mechanisms in {domain} ({difficulty} complexity, {reasoning_style} style).",
+            "context": pool_item["context"],
+            "observation": obs,
+            "problem": f"Unclear causal pathway governing {topic} under varying experimental conditions.",
+            "research_gap": f"Lack of high-resolution quantitative tracking for {pool_item.get('biomarker', 'key molecular marker')}.",
+            "primary_hypothesis": f"Targeted activation of {pool_item.get('biomarker', 'the primary regulatory axis')} governs {topic}.",
+            "alternative_hypothesis": f"Observed variations in {topic} are driven by alternative metabolic or environmental feedback loops.",
+            "experiment_design": {
+                "methodology": pool_item["methodology"],
+                "variables": {"independent": "Target Treatment Level", "dependent": metrics[0]},
+                "control": "Baseline standard control cohort",
+                "sample_size": f"n = {100 if difficulty == 'Expert' else 30} per arm",
+            },
+            "evaluation_metrics": metrics,
+            "expected_results": exp_res,
+            "failure_cases": [f"Uncontrolled environmental fluctuation during assay", f"Loss of baseline control specificity"],
+            "scientific_conclusion": scientific_conc,
+        }

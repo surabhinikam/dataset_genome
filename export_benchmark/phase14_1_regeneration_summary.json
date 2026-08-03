@@ -1,0 +1,33 @@
+{
+  "dataset_name": "dataset_v1",
+  "total_generated_samples": 200,
+  "execution_time_seconds": 0.46,
+  "validation_status": "PASSED",
+  "duplicate_rate_pct": 0.0,
+  "samples_per_domain": {},
+  "samples_per_difficulty": {
+    "Easy": 50,
+    "Medium": 50,
+    "Hard": 50,
+    "Expert": 50
+  },
+  "samples_per_reasoning_style": {
+    "Positive Result": 29,
+    "Negative Result": 29,
+    "Ambiguous Result": 29,
+    "Conflicting Literature": 29,
+    "Failed Experiment": 28,
+    "Replication Study": 28,
+    "Unexpected Observation": 28
+  },
+  "dataset_health_score": 88.3,
+  "average_sample_quality": 85.81,
+  "average_novelty": 85.0,
+  "export_record_counts": {
+    "benchmark_v1.0.json": 200,
+    "benchmark_v1.0.jsonl": 200,
+    "benchmark_v1.0.csv": 200,
+    "benchmark_v1.0.parquet": 200,
+    "benchmark_v1.0_hf.json": 200
+  }
+}

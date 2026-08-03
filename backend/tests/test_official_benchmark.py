@@ -7,7 +7,13 @@ DatasetGenomeBenchmarkManager, and report exporters.
 """
 
 from pathlib import Path
+import asyncio
 import pytest
+
+
+def run_async(coro):
+    """Run async coroutine synchronously. Avoids pytest-asyncio dependency."""
+    return asyncio.run(coro)
 
 from app.benchmark import (
     DIFFICULTY_LEVELS,
@@ -165,11 +171,11 @@ def test_official_benchmark_manager_pipeline(tmp_path):
     manager = DatasetGenomeBenchmarkManager()
     export_dir = tmp_path / "benchmark_export"
 
-    samples, report = manager.build_official_benchmark(
+    samples, report = run_async(manager.build_official_benchmark(
         samples_per_domain=2,
         version_tag="v1.0",
         export_dir=export_dir,
-    )
+    ))
 
     assert len(samples) == 20  # 10 domains * 2
     assert isinstance(report, BenchmarkReport)

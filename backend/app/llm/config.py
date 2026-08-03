@@ -53,7 +53,12 @@ class LLMConfig(BaseModel):
 
 
 def get_llm_config() -> LLMConfig:
-    """Instantiate and return LLMConfig loaded from environment variables."""
+    """Instantiate and return LLMConfig loaded from environment variables (and .env file if present)."""
+    try:
+        from dotenv import load_dotenv
+        load_dotenv()
+    except ImportError:
+        pass
     return LLMConfig()
 
 

@@ -1,0 +1,116 @@
+{
+  "run_info": {
+    "run_id": "run-20260803-36c2429d",
+    "version_tag": "v1.0",
+    "start_time": "2026-08-03T15:20:55.258612",
+    "end_time": "2026-08-03T15:20:55.531713",
+    "duration_seconds": 0.27,
+    "status": "COMPLETED",
+    "current_stage": "Dashboard Refresh",
+    "progress_pct": 100.0,
+    "samples_generated": 200,
+    "quality_score": 100.0,
+    "adaptive_score": 88.3,
+    "total_logs": 14
+  },
+  "logs": [
+    {
+      "timestamp": "15:20:55",
+      "datetime": "2026-08-03T15:20:55.258627",
+      "level": "INFO",
+      "stage": "Idle",
+      "message": "Initiating Master Pipeline execution for version 'v1.0'..."
+    },
+    {
+      "timestamp": "15:20:55",
+      "datetime": "2026-08-03T15:20:55.259468",
+      "level": "INFO",
+      "stage": "Generate Benchmark",
+      "message": "Synthesizing benchmark samples..."
+    },
+    {
+      "timestamp": "15:20:55",
+      "datetime": "2026-08-03T15:20:55.355887",
+      "level": "INFO",
+      "stage": "Validate",
+      "message": "Validating 200 samples..."
+    },
+    {
+      "timestamp": "15:20:55",
+      "datetime": "2026-08-03T15:20:55.357757",
+      "level": "INFO",
+      "stage": "Dataset Intelligence",
+      "message": "Extracting dataset intelligence & metadata..."
+    },
+    {
+      "timestamp": "15:20:55",
+      "datetime": "2026-08-03T15:20:55.360294",
+      "level": "INFO",
+      "stage": "Quality Analysis",
+      "message": "Calculating multi-dimensional quality scores..."
+    },
+    {
+      "timestamp": "15:20:55",
+      "datetime": "2026-08-03T15:20:55.363530",
+      "level": "INFO",
+      "stage": "Adaptive Data",
+      "message": "Computing Adaptive Benchmark Score..."
+    },
+    {
+      "timestamp": "15:20:55",
+      "datetime": "2026-08-03T15:20:55.367209",
+      "level": "INFO",
+      "stage": "AutoScientist",
+      "message": "Running AutoScientist reasoning adapter..."
+    },
+    {
+      "timestamp": "15:20:55",
+      "datetime": "2026-08-03T15:20:55.370040",
+      "level": "INFO",
+      "stage": "Evaluation",
+      "message": "Evaluating benchmark knowledge coverage..."
+    },
+    {
+      "timestamp": "15:20:55",
+      "datetime": "2026-08-03T15:20:55.372813",
+      "level": "INFO",
+      "stage": "Publication",
+      "message": "Building publication artifacts..."
+    },
+    {
+      "timestamp": "15:20:55",
+      "datetime": "2026-08-03T15:20:55.373377",
+      "level": "WARNING",
+      "stage": "Publication",
+      "message": "Publication package warning: 1 validation error for BalanceReport\nimbalance_detected\n  Field required [type=missing, input_value={'is_balanced': True, 'do... 'balance_score': 100.0}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+    },
+    {
+      "timestamp": "15:20:55",
+      "datetime": "2026-08-03T15:20:55.375862",
+      "level": "INFO",
+      "stage": "Hugging Face Packaging",
+      "message": "Packaging Hugging Face Dataset payload..."
+    },
+    {
+      "timestamp": "15:20:55",
+      "datetime": "2026-08-03T15:20:55.378081",
+      "level": "INFO",
+      "stage": "Kaggle Packaging",
+      "message": "Packaging Kaggle Dataset payload..."
+    },
+    {
+      "timestamp": "15:20:55",
+      "datetime": "2026-08-03T15:20:55.381609",
+      "level": "INFO",
+      "stage": "Dashboard Refresh",
+      "message": "Generating dashboard files, leaderboard, & reproducible manifests..."
+    },
+    {
+      "timestamp": "15:20:55",
+      "datetime": "2026-08-03T15:20:55.531761",
+      "level": "SUCCESS",
+      "stage": "Dashboard Refresh",
+      "message": "Pipeline run completed successfully."
+    }
+  ]
+}

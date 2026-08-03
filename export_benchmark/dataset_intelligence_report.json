@@ -1,0 +1,168 @@
+{
+  "dataset_id": "346c9163-8775-4291-986c-d4dc1ceae115",
+  "filename": "benchmark_v1.0.csv",
+  "num_rows": 200,
+  "num_cols": 14,
+  "column_names": [
+    "sample_id",
+    "dataset_id",
+    "domain",
+    "difficulty",
+    "reasoning_style",
+    "prompt",
+    "context",
+    "observation",
+    "problem_identification",
+    "research_gap",
+    "primary_hypothesis",
+    "alternative_hypothesis",
+    "expected_results",
+    "scientific_conclusion"
+  ],
+  "health_score": {
+    "overall_score": 95.7,
+    "grade": "Excellent",
+    "grade_color": "#10b981",
+    "breakdown": {
+      "completeness": 100.0,
+      "consistency": 100.0,
+      "feature_quality": 78.6,
+      "noise": 100.0,
+      "balance": 100.0,
+      "correlation": 100.0
+    }
+  },
+  "completeness": {
+    "score": 100.0,
+    "total_cells": 2800,
+    "missing_cells": 0,
+    "missing_cell_ratio": 0.0,
+    "complete_row_ratio": 1.0,
+    "column_missing_rates": {
+      "sample_id": 0.0,
+      "dataset_id": 0.0,
+      "domain": 0.0,
+      "difficulty": 0.0,
+      "reasoning_style": 0.0,
+      "prompt": 0.0,
+      "context": 0.0,
+      "observation": 0.0,
+      "problem_identification": 0.0,
+      "research_gap": 0.0,
+      "primary_hypothesis": 0.0,
+      "alternative_hypothesis": 0.0,
+      "expected_results": 0.0,
+      "scientific_conclusion": 0.0
+    }
+  },
+  "consistency": {
+    "score": 100.0,
+    "total_rows": 200,
+    "duplicate_rows": 0,
+    "duplicate_ratio": 0.0,
+    "type_uniformity_scores": {
+      "sample_id": 1.0,
+      "dataset_id": 1.0,
+      "domain": 1.0,
+      "difficulty": 1.0,
+      "reasoning_style": 1.0,
+      "prompt": 1.0,
+      "context": 1.0,
+      "observation": 1.0,
+      "problem_identification": 1.0,
+      "research_gap": 1.0,
+      "primary_hypothesis": 1.0,
+      "alternative_hypothesis": 1.0,
+      "expected_results": 1.0,
+      "scientific_conclusion": 1.0
+    },
+    "mixed_type_columns": []
+  },
+  "balance": {
+    "score": 100.0,
+    "categorical_entropy": {
+      "sample_id": 1.0,
+      "dataset_id": 0.0,
+      "domain": 1.0,
+      "difficulty": 1.0,
+      "reasoning_style": 0.9999,
+      "prompt": 1.0,
+      "context": 0.9462,
+      "observation": 0.9643,
+      "problem_identification": 0.9462,
+      "research_gap": 0.9462,
+      "primary_hypothesis": 0.9462,
+      "alternative_hypothesis": 0.9462,
+      "expected_results": 0.9738,
+      "scientific_conclusion": 0.9738
+    },
+    "majority_class_ratios": {
+      "sample_id": 0.005,
+      "dataset_id": 1.0,
+      "domain": 0.1,
+      "difficulty": 0.25,
+      "reasoning_style": 0.145,
+      "prompt": 0.005,
+      "context": 0.1,
+      "observation": 0.03,
+      "problem_identification": 0.1,
+      "research_gap": 0.1,
+      "primary_hypothesis": 0.1,
+      "alternative_hypothesis": 0.1,
+      "expected_results": 0.29,
+      "scientific_conclusion": 0.29
+    },
+    "imbalanced_columns": []
+  },
+  "noise": {
+    "score": 100.0,
+    "total_outliers": 0,
+    "outlier_ratio": 0.0,
+    "column_outliers": {}
+  },
+  "correlation": {
+    "score": 100.0,
+    "numeric_columns": [],
+    "high_correlation_pairs": [],
+    "matrix": {}
+  },
+  "feature_quality": {
+    "score": 78.6,
+    "total_features": 14,
+    "constant_columns": [
+      "dataset_id"
+    ],
+    "low_variance_columns": [],
+    "id_like_columns": [
+      "sample_id",
+      "prompt"
+    ]
+  },
+  "issues": [
+    {
+      "id": "feature-quality-constant-dataset_id",
+      "title": "Zero-variance constant feature 'dataset_id'",
+      "description": "Column 'dataset_id' contains only a single unique value across all rows.",
+      "severity": "critical",
+      "column_name": "dataset_id",
+      "recommendation": "Drop column 'dataset_id' as it carries zero information for predictive modeling."
+    },
+    {
+      "id": "feature-quality-id-column-sample_id",
+      "title": "ID-like feature detected in 'sample_id'",
+      "description": "Column 'sample_id' contains 100% unique text values (200/200), matching an ID pattern.",
+      "severity": "warning",
+      "column_name": "sample_id",
+      "recommendation": "Exclude ID column 'sample_id' from predictive feature sets to prevent target leakage."
+    },
+    {
+      "id": "feature-quality-id-column-prompt",
+      "title": "ID-like feature detected in 'prompt'",
+      "description": "Column 'prompt' contains 100% unique text values (200/200), matching an ID pattern.",
+      "severity": "warning",
+      "column_name": "prompt",
+      "recommendation": "Exclude ID column 'prompt' from predictive feature sets to prevent target leakage."
+    }
+  ],
+  "analyzed_at": "2026-08-03T15:21:10.033353"
+}

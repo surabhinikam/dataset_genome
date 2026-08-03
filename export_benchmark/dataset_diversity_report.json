@@ -1,0 +1,171 @@
+{
+  "total_samples": 200,
+  "reasoning_style_distribution": {
+    "Positive Result": 29,
+    "Negative Result": 29,
+    "Ambiguous Result": 29,
+    "Conflicting Literature": 29,
+    "Failed Experiment": 28,
+    "Replication Study": 28,
+    "Unexpected Observation": 28
+  },
+  "difficulty_distribution": {
+    "Easy": 50,
+    "Medium": 50,
+    "Hard": 50,
+    "Expert": 50
+  },
+  "domain_balance": {
+    "Agriculture": 20,
+    "Healthcare": 20,
+    "Climate Science": 20,
+    "Biology": 20,
+    "Chemistry": 20,
+    "Physics": 20,
+    "Mathematics": 20,
+    "Finance": 20,
+    "HR": 20,
+    "Market Analysis": 20
+  },
+  "topic_balance": {
+    "Agriculture": 20,
+    "Healthcare": 20,
+    "Climate Science": 20,
+    "Biology": 20,
+    "Chemistry": 20,
+    "Physics": 20,
+    "Mathematics": 20,
+    "Finance": 20,
+    "HR": 20,
+    "Market Analysis": 20
+  },
+  "methodology_balance": {
+    "Drought stress phenotyping with high-throughput thermal imaging": 5,
+    "Metagenomic shotgun sequencing & acetylene reduction assay": 5,
+    "Bisulfite sequencing and insect bioassay survival analysis": 5,
+    "Hydroponic salt stress trial with RNA-seq expression profiling": 5,
+    "Multiplex immunohistochemistry & single-cell RNA sequencing": 5,
+    "Intravascular ultrasound (IVUS) & transcriptomic micro-RNA profiling": 5,
+    "PET imaging tracer binding & ultra-sensitive Single Molecule Array (Simoa)": 5,
+    "Longitudinal serum profiling and hyperinsulinemic-euglycemic clamp assays": 5,
+    "Airborne cloud probe sampling & Large Eddy Simulation (LES) modeling": 7,
+    "Eddy covariance tower measurements & deep core microbial metagenomics": 7,
+    "RAPID mooring array transport telemetry & ocean general circulation modeling": 6,
+    "High-resolution Cryo-EM single-particle reconstruction at 2.1 Å": 5,
+    "CUT&Tag sequencing & high-throughput quantitative mass spectrometry": 5,
+    "Single-cell RNA-seq pseudotime trajectory reconstruction": 5,
+    "smFRET and high-throughput GUIDE-seq off-target profiling": 5,
+    "Transient absorption spectroscopy & in-situ DRIFTS reaction monitoring": 10,
+    "Electrochemical impedance spectroscopy (EIS) & X-ray computed tomography": 10,
+    "Scanning tunneling microscopy (STM) & low-temperature magnetotransport": 10,
+    "Quantum state tomography & coincidence counting spectrometry": 10,
+    "Spectral numerical simulation & analytical energy-method estimates": 20,
+    "Agent-based market microstructure simulation & network contagion graph analysis": 20,
+    "Anonymized graph neural network (GNN) centrality tracking & survival analysis": 20,
+    "Hierarchical Bayesian choice modeling & econometric regression": 20
+  },
+  "experiment_balance": {
+    "multi_arm": 150,
+    "single_variable": 50
+  },
+  "hypothesis_diversity": 23,
+  "failure_diversity": 2,
+  "negative_result_percentage": 28.5,
+  "replication_percentage": 14.0,
+  "average_quality_score": 85.81,
+  "average_novelty": 85.0,
+  "duplicate_similarity": 0.05,
+  "semantic_similarity": 0.12,
+  "coverage_heatmap": {
+    "Climate Science": {
+      "Positive Result": 3,
+      "Negative Result": 3,
+      "Ambiguous Result": 3,
+      "Conflicting Literature": 3,
+      "Failed Experiment": 2,
+      "Replication Study": 3,
+      "Unexpected Observation": 3
+    },
+    "HR": {
+      "Positive Result": 3,
+      "Negative Result": 3,
+      "Ambiguous Result": 3,
+      "Conflicting Literature": 3,
+      "Failed Experiment": 3,
+      "Replication Study": 2,
+      "Unexpected Observation": 3
+    },
+    "Physics": {
+      "Positive Result": 3,
+      "Negative Result": 2,
+      "Ambiguous Result": 3,
+      "Conflicting Literature": 3,
+      "Failed Experiment": 3,
+      "Replication Study": 3,
+      "Unexpected Observation": 3
+    },
+    "Chemistry": {
+      "Positive Result": 3,
+      "Negative Result": 3,
+      "Ambiguous Result": 2,
+      "Conflicting Literature": 3,
+      "Failed Experiment": 3,
+      "Replication Study": 3,
+      "Unexpected Observation": 3
+    },
+    "Agriculture": {
+      "Positive Result": 3,
+      "Negative Result": 3,
+      "Ambiguous Result": 3,
+      "Conflicting Literature": 3,
+      "Failed Experiment": 3,
+      "Replication Study": 3,
+      "Unexpected Observation": 2
+    },
+    "Biology": {
+      "Positive Result": 3,
+      "Negative Result": 3,
+      "Ambiguous Result": 3,
+      "Conflicting Literature": 2,
+      "Failed Experiment": 3,
+      "Replication Study": 3,
+      "Unexpected Observation": 3
+    },
+    "Mathematics": {
+      "Positive Result": 2,
+      "Negative Result": 3,
+      "Ambiguous Result": 3,
+      "Conflicting Literature": 3,
+      "Failed Experiment": 3,
+      "Replication Study": 3,
+      "Unexpected Observation": 3
+    },
+    "Healthcare": {
+      "Positive Result": 3,
+      "Negative Result": 3,
+      "Ambiguous Result": 3,
+      "Conflicting Literature": 3,
+      "Failed Experiment": 3,
+      "Replication Study": 2,
+      "Unexpected Observation": 3
+    },
+    "Market Analysis": {
+      "Positive Result": 3,
+      "Negative Result": 3,
+      "Ambiguous Result": 3,
+      "Conflicting Literature": 3,
+      "Failed Experiment": 2,
+      "Replication Study": 3,
+      "Unexpected Observation": 3
+    },
+    "Finance": {
+      "Positive Result": 3,
+      "Negative Result": 3,
+      "Ambiguous Result": 3,
+      "Conflicting Literature": 3,
+      "Failed Experiment": 3,
+      "Replication Study": 3,
+      "Unexpected Observation": 2
+    }
+  }
+}

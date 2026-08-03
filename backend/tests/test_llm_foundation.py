@@ -127,10 +127,9 @@ def test_llm_factory_unsupported_provider():
 
 @pytest.mark.anyio
 async def test_stub_providers_raise_not_implemented():
-    """Anthropic, Gemini, and Ollama are still stubs — they must raise NotImplementedError."""
+    """Anthropic and Ollama are still stubs — they must raise NotImplementedError."""
     stub_providers = [
         AnthropicProvider(),
-        GeminiProvider(),
         OllamaProvider(),
     ]
 
@@ -148,6 +147,30 @@ async def test_stub_providers_raise_not_implemented():
         with pytest.raises(NotImplementedError):
             stream_gen = p.stream(request)
             await stream_gen.__anext__()
+
+
+@pytest.mark.anyio
+async def test_gemini_provider_inheritance_and_requires_key():
+    """
+    GeminiProvider is now a real implementation:
+    - It must inherit from BaseLLMProvider.
+    - Without an API key it raises AuthenticationError (not NotImplementedError).
+    - health_check() returns False gracefully instead of raising.
+    """
+    from app.llm.exceptions import AuthenticationError
+
+    provider = GeminiProvider()
+    provider.config.gemini_api_key = None  # Ensure no key is set
+
+    assert isinstance(provider, BaseLLMProvider)
+
+    request = LLMRequest(prompt="Test prompt", model="test-model")
+
+    with pytest.raises(AuthenticationError):
+        await provider.generate(request)
+
+    result = await provider.health_check()
+    assert result is False
 
 
 @pytest.mark.anyio

@@ -1,0 +1,19 @@
+{
+  "leaderboard_name": "Dataset Genome Benchmark Leaderboard",
+  "total_versions": 1,
+  "top_version": "v1.0",
+  "leaderboard": [
+    {
+      "version": "v1.0",
+      "rank_score": 93.83,
+      "overall_quality": 100.0,
+      "adaptive_score": 88.3,
+      "coverage": 100.0,
+      "novelty": 85.0,
+      "scientific_diversity": 90.0,
+      "publication_readiness": 100.0,
+      "total_samples": 200,
+      "rank": 1
+    }
+  ]
+}

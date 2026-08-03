@@ -1,0 +1,58 @@
+{
+  "report_id": "rpt-bm-3c90bccb",
+  "version": "v1.0",
+  "statistics": {
+    "total_samples": 200,
+    "domain_distribution": {
+      "Agriculture": 20,
+      "Healthcare": 20,
+      "Climate Science": 20,
+      "Biology": 20,
+      "Chemistry": 20,
+      "Physics": 20,
+      "Mathematics": 20,
+      "Finance": 20,
+      "HR": 20,
+      "Market Analysis": 20
+    },
+    "difficulty_distribution": {
+      "Easy": 50,
+      "Medium": 50,
+      "Hard": 50,
+      "Expert": 50
+    },
+    "knowledge_coverage": 100.0,
+    "reasoning_coverage": 100.0,
+    "experiment_diversity": 41.5,
+    "failure_diversity": 100.0,
+    "adaptive_score": 88.3
+  },
+  "validation": {
+    "is_valid": true,
+    "duplicate_count": 0,
+    "incomplete_count": 0,
+    "domain_balance_pass": true,
+    "difficulty_balance_pass": true,
+    "validation_issues": []
+  },
+  "version_history": [
+    {
+      "version_tag": "v1.0",
+      "total_samples": 200,
+      "adaptive_score": 88.3,
+      "knowledge_coverage": 100.0,
+      "changes_description": "Official Release of Benchmark v1.0 across 10 scientific domains.",
+      "created_at": "2026-08-03T15:21:09.571064"
+    }
+  ],
+  "exported_formats": [
+    "JSON",
+    "JSONL",
+    "CSV",
+    "Parquet",
+    "HuggingFace",
+    "DiversityReport",
+    "DashboardData"
+  ],
+  "generated_at": "2026-08-03T15:21:09.674491"
+}

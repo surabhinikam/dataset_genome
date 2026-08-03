@@ -64,7 +64,7 @@ class BenchmarkExporter:
         """Export samples as tabular CSV string and optionally write to disk."""
         output = StringIO()
         fieldnames = [
-            "sample_id", "dataset_id", "domain", "difficulty", "prompt", "context",
+            "sample_id", "dataset_id", "domain", "difficulty", "reasoning_style", "prompt", "context",
             "observation", "problem_identification", "research_gap", "primary_hypothesis",
             "alternative_hypothesis", "expected_results", "scientific_conclusion"
         ]
@@ -127,6 +127,7 @@ class BenchmarkExporter:
             "dataset_id": [s.dataset_id for s in samples],
             "domain": [s.domain for s in samples],
             "difficulty": [s.difficulty for s in samples],
+            "reasoning_style": [getattr(s, "reasoning_style", "Positive Result") for s in samples],
             "prompt": [s.prompt for s in samples],
             "context": [s.context for s in samples],
             "observation": [s.observation for s in samples],

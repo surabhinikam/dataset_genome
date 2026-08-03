@@ -1,0 +1,14 @@
+{
+  "dataset_version": "v1.0",
+  "random_seed": 42,
+  "prompt_version": "v1.0",
+  "llm_model": "template-engine-v1.0",
+  "temperature": 0.85,
+  "provider": "template",
+  "sdk_version": "google-genai 1.0.0 / dataset-genome-v1.0",
+  "generation_timestamp": "2026-08-03T15:21:09.869877",
+  "git_commit": "379d72d6477e5beafe70156e3ccfc043c6e25e78",
+  "python_version": "3.13.2",
+  "os_environment": "Windows-11-10.0.26200-SP0",
+  "schema_version": "16-field-scientific-reasoning-v1"
+}

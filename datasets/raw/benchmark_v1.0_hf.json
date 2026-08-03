@@ -1,0 +1,25 @@
+{
+  "builder_name": "dataset_genome_benchmark",
+  "citation": "@article{dataset_genome_2026, title={Dataset Genome: Autonomous AI Research Benchmark}}",
+  "description": "Official Dataset Genome multi-domain scientific reasoning benchmark dataset.",
+  "features": {
+    "sample_id": [],
+    "dataset_id": [],
+    "domain": [],
+    "difficulty": [],
+    "prompt": [],
+    "context": [],
+    "observation": [],
+    "problem_identification": [],
+    "research_gap": [],
+    "primary_hypothesis": [],
+    "alternative_hypothesis": [],
+    "experiment_design": [],
+    "evaluation_metrics": [],
+    "expected_results": [],
+    "failure_cases": [],
+    "scientific_conclusion": [],
+    "metadata": []
+  },
+  "num_rows": 0
+}
