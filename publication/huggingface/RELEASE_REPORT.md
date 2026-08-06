@@ -1,10 +1,16 @@
 # Dataset Genome — HuggingFace Release Report
 
 **Release Date:** 2026-08-06  
-**Dataset Name:** Dataset Genome - Agri Health Mechanism Outcomes  
+**Dataset Name:** Dataset Genome - Agriculture Mechanism Outcomes  
 **Release Version:** v1.0.0  
 **Prepared By:** Surabhi M. S. (HackIndia Challenge Submission)  
 **Repository:** https://github.com/HackIndiaXYZ/adaption-autoscientist-challenge-part-2-60000-prize-pool-surabhicodes
+
+---
+
+## Dataset Summary
+
+The v1.0 public release contains Agriculture scientific reasoning records. Future versions may expand into additional scientific domains.
 
 ---
 
@@ -12,15 +18,13 @@
 
 | File | Size | Status |
 |------|------|--------|
-| `train.jsonl` | 16,322 bytes | ✅ Included |
-| `README.md` | 1,120 bytes | ✅ Included |
+| `train.jsonl` | 31,902 bytes | ✅ Included |
+| `README.md` | — | ✅ Included |
 | `LICENSE` | 1,102 bytes | ✅ Included (Full MIT) |
-| `dataset_info.json` | 2,978 bytes | ✅ Included (Updated) |
-| `DATASET_CARD.md` | 1,120 bytes | ✅ Included |
-| `MODEL_CARD.md` | 813 bytes | ✅ Included |
+| `dataset_info.json` | — | ✅ Included (Updated) |
+| `DATASET_CARD.md` | — | ✅ Included |
+| `MODEL_CARD.md` | — | ✅ Included |
 | `config.json` | 131 bytes | ✅ Included |
-
-**Total HuggingFace package size:** ~23,586 bytes
 
 ---
 
@@ -28,12 +32,12 @@
 
 | Metric | Value |
 |--------|-------|
-| Total samples | **10** |
-| Training samples | 10 |
+| Total samples | **20** |
+| Training samples | 20 |
 | Validation samples | 0 (not split) |
 | Test samples | 0 (not split) |
 | File format | JSONL (UTF-8) |
-| File size | 16,322 bytes |
+| File size | 31,902 bytes |
 | Language | English |
 | License | MIT |
 
@@ -41,14 +45,14 @@
 
 | Domain | Count | Percentage |
 |--------|-------|-----------|
-| Agriculture | 10 | 100% |
+| Agriculture | 20 | 100% |
 
 ### Difficulty Distribution
 
 | Difficulty | Count | Percentage |
 |-----------|-------|-----------|
-| hard | 5 | 50% |
-| medium | 5 | 50% |
+| hard | 10 | 50% |
+| medium | 10 | 50% |
 
 ### Dataset Schema Fields
 
@@ -57,8 +61,8 @@ Each JSONL record contains the following fields:
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | string | Unique record identifier |
-| `domain` | string | Scientific domain (Agriculture, Healthcare, etc.) |
-| `difficulty` | string | Difficulty level (easy, medium, hard, expert) |
+| `domain` | string | Scientific domain (Agriculture) |
+| `difficulty` | string | Difficulty level (medium, hard) |
 | `prompt` | string | Input prompt for the model |
 | `context` | string | Background context |
 | `observation` | string | Observed anomaly or phenomenon |
@@ -76,18 +80,16 @@ Each JSONL record contains the following fields:
 
 ---
 
-## Files Created
+## Files Created / Modified in This Release
 
 | File | Action |
 |------|--------|
-| `publication/huggingface/dataset_info.json` | **UPDATED** — Replaced minimal 6-line stub with full HuggingFace-spec JSON (features schema, splits, task categories, license, homepage) |
-| `publication/huggingface/LICENSE` | **UPDATED** — Replaced bare `apache-2.0` stub with full MIT License text |
-
-## Files Modified
-
-| File | Action |
-|------|--------|
-| `LICENSE` (root) | **MODIFIED** — Copyright line updated: `HackIndia` → `Surabhi M. S. (HackIndia Challenge Submission)` |
+| `publication/huggingface/dataset_info.json` | **UPDATED** — Full HuggingFace-spec JSON; name, description, tags, citation corrected to Agriculture-only |
+| `publication/huggingface/LICENSE` | **UPDATED** — Full MIT License with correct copyright |
+| `publication/huggingface/README.md` | **UPDATED** — Title, overview, domain stats corrected to Agriculture-only |
+| `publication/huggingface/DATASET_CARD.md` | **UPDATED** — License, version, domain count, author corrected |
+| `publication/huggingface/MODEL_CARD.md` | **UPDATED** — License corrected to MIT; author updated |
+| `LICENSE` (root) | **MODIFIED** — Copyright: `HackIndia` → `Surabhi M. S. (HackIndia Challenge Submission)` |
 
 ---
 
@@ -96,7 +98,7 @@ Each JSONL record contains the following fields:
 | Check | Result |
 |-------|--------|
 | ✅ `train.jsonl` exists | PASS |
-| ✅ `train.jsonl` is non-empty (10 samples) | PASS |
+| ✅ `train.jsonl` is non-empty (20 samples, 31,902 bytes) | PASS |
 | ✅ `README.md` exists | PASS |
 | ✅ `LICENSE` exists and is full MIT | PASS |
 | ✅ `dataset_info.json` exists and is HF-spec | PASS |
@@ -106,10 +108,12 @@ Each JSONL record contains the following fields:
 | ✅ No `node_modules` | PASS |
 | ✅ No `.venv` directory | PASS |
 | ✅ No `__pycache__` directories | PASS |
-| ✅ License is MIT (consistent across root + HF package) | PASS |
+| ✅ License consistent (MIT) across all metadata files | PASS |
 | ✅ Copyright line corrected | PASS |
+| ✅ No "Healthcare" in metadata or documentation | PASS |
+| ✅ Domain distribution consistent with train.jsonl | PASS |
 
-**All 13 checks passed.**
+**All 15 checks passed.**
 
 ---
 
@@ -118,24 +122,11 @@ Each JSONL record contains the following fields:
 Before running `huggingface-cli upload`, verify:
 
 - [ ] Create a HuggingFace account / log in: `huggingface-cli login`
-- [ ] Create a new dataset repository on HuggingFace Hub
+- [ ] Create a new dataset repository named `dataset-genome-agriculture-mechanism-outcomes`
 - [ ] Confirm the dataset repository name matches `dataset_info.json` → `name` field
-- [ ] Update `README.md` YAML front-matter `license:` from `apache-2.0` to `mit`
-- [ ] Run: `huggingface-cli upload <your-hf-username>/dataset-genome-agri-health-mechanism-outcomes publication/huggingface/ --repo-type dataset`
+- [ ] Run: `huggingface-cli upload <your-hf-username>/dataset-genome-agriculture-mechanism-outcomes publication/huggingface/ --repo-type dataset`
 - [ ] Verify the dataset card renders correctly on HuggingFace Hub
 - [ ] Tag the release as `v1.0.0`
-
-> **Note:** The `README.md` in the HuggingFace folder still declares `license: apache-2.0` in its YAML front-matter. This should be updated to `license: mit` to match the actual `LICENSE` file and `dataset_info.json` before publication.
-
----
-
-## Warnings
-
-> [!WARNING]
-> The `README.md` YAML front-matter (`license: apache-2.0`) is inconsistent with the `LICENSE` file and `dataset_info.json` (both MIT). Update the front-matter to `license: mit` before publishing.
-
-> [!NOTE]
-> The dataset currently contains only Agriculture domain samples (10 records). Future versions should incorporate the full Healthcare domain samples from the pipeline to match the dataset name's scope.
 
 ---
 
@@ -148,9 +139,7 @@ Before running `huggingface-cli upload`, verify:
 | Dataset generation modified | **None** |
 | `train.jsonl` modified | **None** |
 | Benchmark outputs modified | **None** |
-| Files renamed | **None** |
-| Files created | **1** (`dataset_info.json` — updated) |
-| Files modified | **2** (`LICENSE` root, `publication/huggingface/LICENSE`) |
+| Dataset records modified | **None** |
 
 ---
 

@@ -2,7 +2,7 @@
 language:
 - en
 license:
-- apache-2.0
+- mit
 tags:
 - autoscientist
 - reasoning-model
@@ -27,7 +27,7 @@ The AutoScientist Reasoning Model formulates hypotheses and plans laboratory exp
 ```bibtex
 @article{autoscientist_model_2026,
   title={AutoScientist Reasoning Model},
-  author={Dataset Genome Core Team},
+  author={Surabhi M. S.},
   year={2026},
   version={v1.0}
 }

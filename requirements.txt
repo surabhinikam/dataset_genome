@@ -1,0 +1,46 @@
+# Dataset Genome — Pipeline Dependencies
+# For running demo.py and the full benchmark pipeline from the repository root.
+# Install with: pip install -r requirements.txt
+#
+# Backend API dependencies are in backend/requirements.txt (frozen for submission).
+# This file covers the additional packages needed by the pipeline and publication scripts.
+
+# ── LLM Providers ──────────────────────────────────────────────────────────────
+anthropic>=0.40.0
+google-genai>=1.0.0
+openai>=1.60.0
+ollama>=0.4.0
+
+# ── Retry & Resilience ─────────────────────────────────────────────────────────
+tenacity>=9.0.0
+
+# ── Data Processing ────────────────────────────────────────────────────────────
+pandas>=2.2.3
+pyarrow>=18.0.0
+
+# ── ML / Training ──────────────────────────────────────────────────────────────
+peft>=0.14.0
+transformers>=4.48.0
+torch>=2.5.0
+
+# ── HuggingFace Integration ────────────────────────────────────────────────────
+datasets>=3.2.0
+huggingface-hub>=0.27.0
+
+# ── Kaggle Integration ─────────────────────────────────────────────────────────
+kaggle>=1.6.0
+
+# ── Environment & Configuration ───────────────────────────────────────────────
+python-dotenv>=1.0.0
+pydantic>=2.10.0
+pydantic-settings>=2.6.0
+
+# ── Web Framework (API) ────────────────────────────────────────────────────────
+fastapi>=0.115.0
+python-multipart>=0.0.12
+uvicorn>=0.32.0
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+python-dateutil>=2.9.0
+requests>=2.32.0
+tqdm>=4.67.0

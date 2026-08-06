@@ -1,7 +1,7 @@
 {
-  "name": "dataset-genome-agri-health-mechanism-outcomes",
-  "pretty_name": "Dataset Genome - Agri Health Mechanism Outcomes",
-  "description": "A research dataset of prompt-completion pairs for scientific reasoning in agriculture and healthcare. Generated using the Dataset Genome pipeline and adapted through Adaption Adaptive Data.",
+  "name": "dataset-genome-agriculture-mechanism-outcomes",
+  "pretty_name": "Dataset Genome - Agriculture Mechanism Outcomes",
+  "description": "A research dataset of prompt-completion pairs for scientific reasoning in agriculture. Generated using the Dataset Genome pipeline and adapted through Adaption Adaptive Data.",
   "license": "mit",
   "language": [
     "en"
@@ -22,20 +22,19 @@
     "autoscientist",
     "scientific-reasoning",
     "agriculture",
-    "healthcare",
     "benchmark",
     "hackindia",
     "adaption-adaptive-data"
   ],
   "version": "1.0.0",
   "homepage": "https://github.com/HackIndiaXYZ/adaption-autoscientist-challenge-part-2-60000-prize-pool-surabhicodes",
-  "citation": "@article{dataset_genome_2026,\n  title={Dataset Genome: Autonomous Scientific Reasoning Benchmark for Agriculture and Healthcare},\n  author={Surabhi M. S.},\n  year={2026},\n  version={v1.0.0},\n  url={https://github.com/HackIndiaXYZ/adaption-autoscientist-challenge-part-2-60000-prize-pool-surabhicodes}\n}",
+  "citation": "@article{dataset_genome_2026,\n  title={Dataset Genome: Autonomous Scientific Reasoning Benchmark for Agriculture},\n  author={Surabhi M. S.},\n  year={2026},\n  version={v1.0.0},\n  url={https://github.com/HackIndiaXYZ/adaption-autoscientist-challenge-part-2-60000-prize-pool-surabhicodes}\n}",
   "splits": {
     "train": {
       "name": "train",
       "num_bytes": 31902,
       "num_examples": 20,
-      "dataset_name": "dataset-genome-agri-health-mechanism-outcomes"
+      "dataset_name": "dataset-genome-agriculture-mechanism-outcomes"
     }
   },
   "features": {
