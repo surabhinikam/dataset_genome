@@ -1,6 +1,122 @@
 {
-  "description": "Dataset Genome Scientific Reasoning Benchmark",
-  "version": "v2.0-adaptive",
-  "download_size": 15000,
-  "dataset_size": 15000
+  "name": "dataset-genome-agri-health-mechanism-outcomes",
+  "pretty_name": "Dataset Genome - Agri Health Mechanism Outcomes",
+  "description": "A research dataset of prompt-completion pairs for scientific reasoning in agriculture and healthcare. Generated using the Dataset Genome pipeline and adapted through Adaption Adaptive Data.",
+  "license": "mit",
+  "language": [
+    "en"
+  ],
+  "task_categories": [
+    "text-generation",
+    "question-answering"
+  ],
+  "task_ids": [
+    "scientific-reasoning",
+    "instruction-following"
+  ],
+  "size_categories": [
+    "n<1K"
+  ],
+  "tags": [
+    "dataset-genome",
+    "autoscientist",
+    "scientific-reasoning",
+    "agriculture",
+    "healthcare",
+    "benchmark",
+    "hackindia",
+    "adaption-adaptive-data"
+  ],
+  "version": "1.0.0",
+  "homepage": "https://github.com/HackIndiaXYZ/adaption-autoscientist-challenge-part-2-60000-prize-pool-surabhicodes",
+  "citation": "@article{dataset_genome_2026,\n  title={Dataset Genome: Autonomous Scientific Reasoning Benchmark for Agriculture and Healthcare},\n  author={Surabhi M. S.},\n  year={2026},\n  version={v1.0.0},\n  url={https://github.com/HackIndiaXYZ/adaption-autoscientist-challenge-part-2-60000-prize-pool-surabhicodes}\n}",
+  "splits": {
+    "train": {
+      "name": "train",
+      "num_bytes": 31902,
+      "num_examples": 20,
+      "dataset_name": "dataset-genome-agri-health-mechanism-outcomes"
+    }
+  },
+  "features": {
+    "id": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "domain": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "difficulty": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "prompt": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "context": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "observation": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "identified_problem": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "research_gap": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "primary_hypothesis": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "alternative_hypothesis": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "experiment_design": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "control_variables": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    },
+    "evaluation_metrics": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    },
+    "expected_result": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "failure_cases": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    },
+    "scientific_conclusion": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "created_at": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "download_size": 31902,
+  "dataset_size": 31902
 }

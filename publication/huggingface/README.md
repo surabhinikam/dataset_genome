@@ -2,7 +2,7 @@
 language:
 - en
 license:
-- apache-2.0
+- mit
 tags:
 - dataset-genome
 - autoscientist
@@ -10,16 +10,15 @@ tags:
 pretty_name: Dataset Genome Benchmark
 ---
 
-# Dataset Genome — Scientific Reasoning Benchmark
+# Dataset Genome – Agriculture & Health Mechanism Outcomes Dataset
 
 ## Project Overview & Scientific Motivation
-Dataset Genome is an autonomous, open-source scientific reasoning benchmark designed to evaluate and improve AI model capabilities in observation analysis, hypothesis generation, and experimental design.
+Dataset Genome is an AI-generated agriculture and healthcare reasoning dataset created for the HackIndia AutoScientist Challenge. It contains structured prompt–completion pairs focused on biological mechanisms, crop science, plant health, experimental outcomes, and scientific reasoning. The dataset was adapted using Adaption Adaptive Data and used to fine-tune GPT-OSS-20B with LoRA.
 
 ## Dataset Schema & Statistics
-- **Dataset Version**: `v2.0-adaptive`
-- **Total Retained Samples**: `10`
-- **Adaptive Score**: `79.0 / 100`
-- **Training Readiness**: `False`
+
+- Dataset Version: v1.0
+- Total Samples: 20
 
 ### Domain Distribution
 - **Agriculture**: 10 sample(s)
@@ -32,7 +31,7 @@ Dataset Genome is an autonomous, open-source scientific reasoning benchmark desi
 ```bibtex
 @article{dataset_genome_2026,
   title={Dataset Genome: Autonomous Scientific Reasoning Benchmark},
-  author={Dataset Genome Core Team},
+  author={Surabhi M. S.},
   year={2026},
   version={v2.0-adaptive}
 }
